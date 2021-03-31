@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Analizador financiero</title>
+  </head>
+  <body class="flow">
+    <main id="instructions">
+      <h1>Bienvenido al analizador financiero</h1>
+      <p>
+        Este analizador financiero te permitirá tener en unos momentos un
+        reporte de tus indicadores financieros.
+      </p>
+      <h2>¿Qué son los indicadores financieros?</h2>
+      <p>
+        Son herramientas diseñadas para medir la salud financiera de una empresa
+        tomando como base la interpretación de la información financiera. Dichos
+        indicadores miden distintos aspectos de la salud financiera de tu
+        empresa tales como:
+      </p>
+      <ul>
+        <li>Liquidez.</li>
+        <li>Rentabilidad.</li>
+        <li>Capacidad de endeudamiento.</li>
+        <li>Eficiencia.</li>
+      </ul>
+      <p>
+        Algunas consideraciones a tener en cuenta antes de iniciar este proceso:
+      </p>
+      <ul>
+        <li>
+          Este reporte mostrará un análisis general de la situación financiera
+          de tu empresa, sin embargo, es posible que estos resultados tengan
+          connotaciones distintas dependiendo de distintos factores. Por lo
+          tanto
+          <strong
+            >Este analizador financiero no busca reemplazar un análisis hecho
+            por un profesional</strong
+          >.
+        </li>
+        <li>
+          Este reporte está enfocado en dar información financiera para
+          empresas. Si no tienes una, es posible que varios indicadores de este
+          reporte no apliquen para ti.
+        </li>
+      </ul>
+      <div class="button-container">
+        <button class="button">Comenzar</button>
+      </div>
+    </main>
+    <article id="assets" hidden>
+      <h2>Parte 1: Activos</h2>
+      <p>
+        Los activos son bienes o derechos que posee la empresa y se pueden
+        convertir en efectivo o equivalentes.
+      </p>
+      <form action="">
+        <fieldset>
+          <h3>Activos corrientes</h3>
+          <p>
+            El activo corriente es el activo de una empresa que puede
+            convertirse en dinero en un plazo menor a un año.
+          </p>
+          <label for="cash">Efectivo <sup data-name="Efectivo" data-description="Ingrese en este campo el valor del dinero inmediato que posee la empresa." data-examples="Algunos ejemplos de este grupo incluye elementos como: dinero en efectivo y cuentas de ahorro y corriente">?</sup></label>
+          <input class="current-assets-value"
+            id="cash"
+            type="number"
+            name="cash"
+            data-value="result"
+            value="0"
+          />
+          <label for="accounts-receivable"
+            >Cuentas por cobrar <sup data-name="Cuentas por cobrar" data-description="Ingrese en este campo el valor de las cuentas que posee la empresa por cobrar en un plazo menor a 90 días" data-examples="Estas pueden incluir cuentas por cobrar tanto a clientes como a empleados o a terceros.">?</sup></label
+          >
+          <input class="current-assets-value"
+            id="accountsReceivable"
+            type="number"
+            name="accounts-receivable"
+            data-value="result"
+            value="0"
+          />
+          <label for="inventory">Inventario <sup data-name="Inventario" data-description="Ingresa en este campo el valor de la mercancía disponible para la venta." data-examples="">?</sup></label>
+          <input class="current-assets-value"
+            id="inventory"
+            type="number"
+            name="inventory"
+            data-value="result"
+            value="0"
+          />
+          <label for="other-current-assets"
+            >Otros activos corrientes <sup data-name="Otros activos corrientes" data-description="Ingresa en este campo el valor de los demás activos que la empresa posea que se puedan convertir a efectivo en menos de un año." data-examples="Algunos ejemplos de estos activos incluyen: inversiones que se venzan en menos de 12 meses.">?</sup></label
+          >
+          <input class="current-assets-value"
+            id="otherCurrentAssets"
+            type="number"
+            name="short-term-investment"
+            data-value="result"
+            value="0"
+          />
+          <label for="current-assets-total"><strong>Total activo no coriente</strong></label>
+          <input class="current-assets-value"
+            id="currentAssetsTotal"
+            type="number"
+            name="current-assets-total"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+        <fieldset>
+          <h3>Activo no corriente</h3>
+          <p>
+            El activo no corriente corresponde a los activos de la empresa que
+            necesitan más de un año para poder convertirse en efectivo.
+          </p>
+          <label for="fixed-assets">
+            Propiedad, planta y equipo <sup data-name="Propiedad, planta y equipo" data-description="Ingrese en este campo el valor de los bienes tangibles que tiene la empresa para producción de bienes o prestación de servicios." data-examples="Algunos ejemplos de esto incluyen: <ul>
+              <li>Propiedades o terrenos a nombre de la empresa.</li>
+              <li>Maquinaria para la producción de bienes o prestación de servicios.</li>
+              <li>Equipo de oficina, computación o transporte.</li>
+            </ul>">?</sup></label
+          >
+          
+          <input class="non-current-assets-value"
+            id="fixedAssets"
+            type="number"
+            name="fixedAssets"
+            data-value="result"
+            value="0"
+          />
+          <label for="long-term-investment">
+            Inversiones a largo plazo <sup data-name="Inversiones a largo plazo" data-description="Ingrese en este campo el valor de cualquier tipo de inversión que se espere recibir en un plazo superior a un año." data-examples="En este campo pueden ir rubros como las inversiones de CDT o bonos cuya fecha de vencimiento sea superior a un año.">?</sup></label
+          >
+          <input class="non-current-assets-value"
+            id="longTermInvestment"
+            type="number"
+            name="long-term-investment"
+            data-value="result"
+            value="0"
+          />
+          <label for="other-non-current-assets">
+            Otros activos no corrientes <sup data-name="Otros activos no corrientes" data-description="Ingrese en este campo el valor de cualquier derecho o bien que posea la empresa que se convierta en efectivo en un plazo superior a un año." data-examples="Algunos de estos incluyen rubros tales como:
+            <ul>
+              <li>Cuentas por cobrar cuya fecha de vencimiento sean superior a un año.</li>
+              <li>Inventarios que se esperan venderse en un plazo superior a un año.</li>
+              <li>Propiedades cuyo fin sea el de renta o alquiler.</li>
+              <li>Activos intangibles.</li>
+            </ul>">?</sup></label
+          >
+          
+          <input class="non-current-assets-value"
+            id="otherNonCurrentAssets"
+            type="number"
+            name="other-non-current-assets"
+            data-value="result"
+            value="0"
+          />
+          <label for="non-current-assets-total"><strong>Total activo no coriente</strong></label>
+          <input class="non-current-assets-value"
+            id="nonCurrentAssetsTotal"
+            type="number"
+            name="non-current-assets-total"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+      </form>
+      <div>
+        <button class="back">Anterior</button>
+        <button class="next">Siguiente</button>
+      </div>
+    </article>
+    <article id="liabilitiesAndEquity" hidden>
+      <h2>Parte 2: Pasivos y Patrimonio</h2>
+      <h3>Pasivos</h3>
+      <p>El pasivo consiste en las deudas que la empresa posee.</p>
+      <form action="">
+        <fieldset>
+          <h3>Pasivo corriente</h3>
+          <p>
+            El pasivo corriente son las obligaciones de la empresa que pueden
+            pagarse en un plazo menor a un año.
+          </p>
+          <form action="">
+            <label for="accounts-payable-short-term"
+              >Cuentas por pagar a corto plazo <sup data-name="Cuentas por pagar a corto plazo" data-description="Ingrese en este campo el valor las deudas con proveedores y demás terceros que tengan que pagarse en un plazo inferior a un año." data-examples="">?</sup></label
+            >
+            <input class="current-liabilities-value"
+              id="accountsPayableShortTerm"
+              type="number"
+              name="accounts-payable-short-term"
+              data-value="result"
+              value="0"
+            />
+            <label for="short-term-taxes">Impuestos <sup data-name="Impuestos" data-description="Ingrese en este campo el valor correspondiente a los impuestos que deban pagarse en un plazo inferior a un año." data-examples="">?</sup></label>
+            <input class="current-liabilities-value"
+              id="shortTermTaxes"
+              type="number"
+              name="short-term-taxes"
+              data-value="result"
+              value="0"
+            />
+            <label for="employee-liabilities"
+              >Obligaciones a empleados <sup data-name="Obligaciones a empleados" data-description="Ingrese en este campo el valor correspondiente a deudas que deban pagarse a empleados en un valor inferior a un año." data-examples="Algunos ejemplos de estos rubros son: salarios, bonificaciones, seguridad social y prestaciones sociales.">?</sup></label
+            >
+            <input class="current-liabilities-value"
+              id="employeeLiabilities"
+              type="number"
+              name="employee-liabilities"
+              data-value="result"
+              value="0"
+            />
+            <label for="other-current-liabilities"
+              >Otros pasivos corrientes <sup data-name="Otros pasivos corrientes" data-description="Ingrese en este campo el valor correspondiente a deudas inferiores a un año que no correspondan en alguno de los grupos mencionados anteriormente." data-examples="Algunos ejemplos de estos rubros son:
+              <ul>
+                <li>Préstamos tanto de entidades financieras como de particulares cuya fecha de expiración es menor a un año.</li>
+                <li>Obligaciones a corto plazo con accionistas o demás personas de la empresa que no sean empleados.</li>
+              </ul>">?</sup></label
+            >
+            
+            <input class="current-liabilities-value"
+              id="otherCurrentLiabilities"
+              type="number"
+              name="employee-liabilities"
+              data-value="result"
+              value="0"
+            />
+            <label for="total-current-liabilities"
+            ><strong>Total pasivo corriente</strong></label
+          >
+          <input class="current-liabilities-value"
+            id="totalCurrentLiabilities"
+            type="number"
+            name="employee-liabilities"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+        <fieldset>
+          <h3>Pasivo no corriente</h3>
+          <p>
+            El pasivo no corriente son las obligaciones de la empresa que cuyo
+            plazo para pagarse es superior a un año.
+          </p>
+          <label for="financial-liabilities"
+            >Obligaciones financieras <sup data-name="Obligaciones financieras" data-description="Ingrese en este campo el valor correspondiente a obligaciones con terceros que tengan que pagarse en un plazo superior a un año." data-examples="Este grupo incluye tanto obligaciones con entidades financieras como con particulares.">?</sup></label
+          >
+          <input
+          class="non-current-liabilities-value"
+            id="financialLiabilities"
+            type="number"
+            name="financial-liabilities"
+            data-value="result"
+            value="0"
+          />
+          <label for="accounts-payable-long-term"
+            >Cuentas por pagar a largo plazo <sup data-name="Cuentas por pagar a largo plazo" data-description="Ingrese en este campo el valor las deudas con proveedores y demás terceros que tengan que pagarse en un plazo superior a un año." data-examples="">?</sup></label
+          >
+          <input
+          class="non-current-liabilities-value"
+            id="accountsPayableLongTerm"
+            type="number"
+            name="accounts-payable-long-term"
+            data-value="result"
+            value="0"
+          />
+          <label for="other-long-term-liabilities"
+            >Otros pasivos no corrientes <sup data-name="Otros pasivos no corrientes" data-description="Ingrese en este campo el valor correspondiente a deudas superiores a un año que no correspondan en alguno de los grupos mencionados anteriormente." data-examples="">?</sup></label
+          >
+          <input
+          class="non-current-liabilities-value"
+            id="otherLongTermLiabilities"
+            type="number"
+            name="other-long-term-liabilities"
+            data-value="result"
+            value="0"
+          />
+          <label for="total-non-current-assets"
+            ><strong>Total pasivo no corriente</strong></label
+          >
+          <input
+          class="non-current-liabilities-value"
+            id="totalNonCurrentLiabilities"
+            type="number"
+            name="total-non-current-assets"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+        <h2>Patrimonio</h2>
+        <p>
+          El patrimonio es la diferencia entre el activo y el pasivo. Comprende
+          el valor de los aportes por parte de los socios y las ganancias
+          generados por la compañía que no han sido distribuidos.
+        </p>
+        <fieldset>
+          <label for="equity"
+            ><strong>Total patrimonio</strong></label
+          >
+          <input
+          class="equity-value"
+            id="equity"
+            type="number"
+            name="equity"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+      </form>
+      <div>
+        <button class="back">Anterior</button>
+        <button class="next">Siguiente</button>
+      </div>
+    </article>
+    <article id="profitAndLoss" hidden>
+      <form action="">
+        <h2>Parte 3: Ingresos, costos y gastos</h2>
+        <fieldset>
+          <h3>Utilidad bruta</h3>
+          <label for="operating-revenue"
+            >Ingresos operacionales <sup data-name="Ingresos operacionales" data-description="Ingrese en este campo el valor total de los ingresos recibidos por concepto de la actividad o actividades principales de la empresa." data-examples="">?</sup></label
+          >
+          <input
+            id="operatingRevenue"
+            class="profit-and-loss"
+            type="number"
+            name="operating-revenue"
+            data-value="result"
+            value="0"
+          />
+          <label for="cost-of-good-solds"
+            >Costo de venta y prestación de servicios <sup data-name="Costo de venta y prestación de servicios" data-description="Ingrese en este campo el valor total de los costos incurridos en generar los ingresos mencionados en el renglón anterior." data-examples="Estos costos pueden ser tanto costos directos (como materiales o mano de obra) o costos indirectos relacionados con la prestación de un servicio (por ejemplo el costo de mantener servidores funcionando su tu empresa está relacionada con prestar servicios a base de tecnología.)">?</sup></label
+          >
+          <input
+            id="costOfGoodSolds"
+            class="profit-and-loss"
+            type="number"
+            name="cost-of-good-solds"
+            data-value="result"
+            value="0"
+          />
+          <label for="gross-profit"
+            >Utilidad bruta</label>
+          <input
+            id="grossProfit"
+            class="profit-and-loss"
+            type="number"
+            name="gross-profit"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+        <fieldset>
+          <h3>Gastos operacionales</h3>
+          <label for="administrative-expenses"
+            >Gastos operacionales de administración: <sup data-name="Gastos operacionales de administración" data-description="Ingrese en este campo el valor de los gastos incurridos que tengan relación directa con la administración de la empresa." data-examples="Algunos ejemplos de estos incluyen: <ul>
+              <li>Salario de personal administrativo.</li>
+              <li>Pago de alquiler, seguros, servicios o mantenimiento relacionados con la administración del negocio.</li>
+              <li>Gastos legales.</li>
+              <li>Demás gastos necesarios para poder desarrollar las actividades administrativas de la empresa.</li>
+            </ul>">?</sup></label>
+          <input
+            id="administrativeExpenses"
+            class="profit-and-loss"
+            type="number"
+            name="administrative-expenses"
+            data-value="result"
+            value="0"
+          />
+          <label for="sales-expenses"
+            >Gastos operacionales de venta: <sup data-name="Gastos operacionales de venta" data-description="Ingrese en este campo el valor de los gastos incurridos para realizar las actividades de venta del producto o servicio." data-examples="Algunos ejemplos de estos incluyen: <ul>
+              <li>Salarios y comisiones del personal de ventas.</li>
+              <li>Pago de alquiler, seguros, servicios, empaque, almacenamiento o transporte relacionados con la venta del producto o servicio.</li>
+              <li>Demás gastos necesarios para venta del bien o prestación de un servicio.</li>
+            </ul>">?</sup></label
+          >
+          
+          <input
+            id="salesExpenses"
+            class="profit-and-loss"
+            type="number"
+            name="sales-expenses"
+            data-value="result"
+            value="0"
+          />
+          <label for="operating-income"
+          >Utilidad operacional</label>
+          <input
+            id="operatingIncome"
+            class="profit-and-loss"
+            type="number"
+            name="operating-income"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+        <fieldset>
+          <h3>Movimientos no operacioanles</h3>
+          <label for="non-operating-income"
+            >Ingresos no operacionales <sup data-name="Ingresos no operacionales" data-description="Ingrese en este campo el valor total de los ingresos que <strong>no</strong> estén relacionados con la actividad principal del negocio." data-examples="Algunos de estos ingresos pueden ser: intereses, dividendos, indeminzaciones o ventas de activos.">?</sup>
+          </label>
+          <input
+            id="nonOperatingIncome"
+            class="profit-and-loss"
+            type="number"
+            name="non-operating-income"
+            data-value="result"
+            value="0"
+          />
+          <label for="non-operating-expense"
+            >Gastos no operacionales <sup data-name="Gastos no operacionales" data-description="Ingrese en este campo el valor total de los gastos que no son ni de administración o de ventas o que no están relacionados de forma directa con la actividad del negocio." data-examples="Algunos de estos gastos incluyen: intereses, pago de indemnizaciones, pérdida en venta de activos y demás gastos extraordinarios.">?</sup></label
+          >
+          <input
+            id="nonOperatingExpense"
+            class="profit-and-loss"
+            type="number"
+            name="non-operating-expense"
+            data-value="result"
+            value="0"
+          />
+          <label for="net-income"
+          >Utilidad neta</label>
+          <input
+            id="netIncome"
+            class="profit-and-loss"
+            type="number"
+            name="net-income"
+            data-value="result"
+            value="0" disabled
+          />
+        </fieldset>
+
+      </form>
+      <div>
+        <button class="back">Anterior</button>
+        <button class="next">Siguiente</button>
+      </div>
+    </article>
+    <article id="summary" hidden>
+      <h2>Resumen</h2>
+      <article>
+        <h3>Activo</h3>
+        <article>
+          <h3>Activo corriente</h3>
+          <p><strong>Efectivo:</strong> <span id="cashSummary"></span></p>
+          <p><strong>Cuentas por cobrar:</strong> <span id="accountsReceivableSummary"></span></p>
+          <p><strong>Inventarios:</strong> <span id="inventorySummary"></span></p>
+          <p><strong>Otros activos corrientes:</strong> <span id="otherCurrentAssetsSummary"></span></p>
+          <p><strong>Total activo corriente:</strong> <span id="currentAssetsTotalSummary"></span></p>
+        </article>
+        <article>
+          <h3>Activo no corriente</h3>
+          <p><strong>Propiedad, planta y equipo:</strong> <span id="fixedAssetsSummary"></span></p>
+          <p><strong>Inversiones a largo plazo:</strong> <span id="longTermInvestmentSummary"></span></p>
+          <p><strong>Otros activos no corrientes:</strong> <span id="otherNonCurrentAssetsSummary"></span></p>
+          <p><strong>Total activo no corriente:</strong> <span id="nonCurrentAssetsTotalSummary"></span></p>
+        </article>
+        <p><strong>Total activo:</strong> <span></span></p>
+      </article>
+      <article>
+        <h3>Pasivo</h3>
+        <article>
+          <h3>Pasivo corriente</h3>
+          <p><strong>Cuentas por pagar a corto plazo:</strong> <span id="accountsPayableShortTermSummary"></span></p>
+          <p><strong>Impuestos:</strong> <span id="shortTermTaxesSummary"></span></p>
+          <p><strong>Obligaciones a empleados:</strong> <span id="employeeLiabilitiesSummary"></span></p>
+          <p><strong>Otros pasivos corrientes:</strong> <span id="otherCurrentLiabilitiesSummary"></span></p>
+          <p><strong>Total pasivo corriente:</strong> <span id="totalCurrentLiabilitiesSummary"></span></p>
+        </article>
+        <article>
+          <h3>Pasivo no corriente</h3>
+          <p><strong>Obligaciones financieras:</strong> <span id="financialLiabilitiesSummary"></span></p>
+          <p><strong>Cuentas por pagar a largo plazo:</strong> <span id="accountsPayableLongTermSummary"></span></p>
+          <p><strong>Otros pasivos no corrientes:</strong> <span id="otherLongTermLiabilitiesSummary"></span></p>
+          <p><strong>Total pasivo corriente:</strong> <span id="totalNonCurrentLiabilitiesSummary"></span></p>
+        </article>
+        <h3>Patrimonio</h3>
+        <article>
+          <p><strong>Total patrimonio:</strong> <span id="equitySummary"></span></p>
+        </article>
+      </article>
+      <article>
+        <h3>Ingresos, costos y gastos</h3>
+        <p><strong>Ingresos operacionales:</strong> <span id="operatingRevenueSummary"></span></p>
+        <p>
+          <strong>Costo de venta y prestación de servicios:</strong>
+          <span id="costOfGoodSoldsSummary"></span>
+        </p>
+        <p><strong>Utilidad bruta:</strong> <span id="grossProfitSummary"></span></p>
+        <p>
+          <strong>Gastos operacionales de administración:</strong> <span id="administrativeExpensesSummary"></span>
+        </p>
+        <p><strong>Gastos operacionales de venta:</strong> <span id="salesExpensesSummary"></span></p>
+        <p><strong>Utilidad operacional:</strong> <span id="operatingIncomeSummary"></span></p>
+        <p><strong>Ingresos no operacionales:</strong> <span id="nonOperatingIncomeSummary"></span></p>
+        <p><strong>Gastos no operacionales:</strong> <span id="nonOperatingExpenseSummary"></span></p>
+        <p><strong>Utilidad neta:</strong> <span id="netIncomeSummary"></span></p>
+      </article>
+      <p>
+        Si alguna información es incorrecta, usa los siguientes botones para
+        regresar a la sección que necesitas corregir.
+      </p>
+      <div class="back-buttons">
+        <button>Parte 1: Activos</button>
+        <button>Parte 2: Pasivos y Patrimonio</button>
+        <button>Parte 3: Ingresos, costos y gastos</button>
+      </div>
+      <p>
+        Si consideras que la información es correcta, haz click en el siguiente
+        botón para generar tu reporte financiero.
+      </p>
+      <div>
+        <button id="generateContent">Generar reporte</button>
+      </div>
+    </article>
+    <article id="report">
+      <section id="liquidity">
+        <h2>Indicadores de eficiencia</h2>
+        <section id="currentRatio">
+          <h3>Razón corriente</h3>
+          <p>La razón corriente indica la capacidad que tiene la empresa para poder pagar sus obligaciones a corto plazo con base a su capacidad para generar flujos de efectivo.</p>
+          <div class="indicator warning">0.00</div>
+          <p>La razón corriente para tus estados financieros es <strong class="indicator-state"></strong></p>
+          <p class="indicator-explanation"></p>
+        </section>
+        <section id="quickRatio">
+          <h3>Prueba ácida</h3>
+          <p>La prueba ácida mide la capacidad de la empresa de pagar sus obligaciones a corto plazo <b>sin contar</b> con el inventario, ya de que todos los activos corrientes, estos son los más difíciles de convertir en efectivo.</p>
+          <div class="indicator"></div>
+          <p>El indicador de prueba ácida de tus estados financieros es <strong class="indicator-state"></strong></p>
+          <p class="indicator-explanation"></p>
+        </section>
+        <section id="cashRatio">
+          <h3>Prueba defensiva</h3>
+          <p>La prueba defensiva muestra la capacidad de la empresa para poder pagar sus obligaciones a corto plazo sólamente usando el dinero que se posee en efectivo, eliminando cualquier influencia de cualquier activo corriente que no se pueda convertir en efectivo de forma inmediata.</p>
+          <div class="indicator"></div>
+          <p>La prueba defensiva de tus estados financieros es <strong class="indicator-state"></strong></p>
+          <p class="indicator-explanation"></p>
+        </section>
+      </section>
+      <section id="leverage">
+        <h2>Indicadores de endeudamiento</h2>
+        <section id="debtRatio">
+          <h3>Endeudamiento total</h3>
+          <p>Este indicador muestra el grado de participación de los proveedores dentro de la empresa. En otras palabras, muestra que tanta deuda posee la empresa para poder realizar sus actividades en relación con los activos que esta posee.</p>
+          <div class="indicator"></div>
+          <p>El nivel de endeudamiento total para tus estados financieros es <strong class="indicator-state"></strong></p>
+          <p class="indicator-explanation"></p>
+        </section>
+        <section id="debtToEquityRatio">
+          <h3>Apalancamiento total</h3>
+          <p>Este indicador refleja el grado de cobertura que tiene el patrimonio con respecto a las obligaciones contraidas, lo que permite identificar el nivel en que los acreedores y los socios participan para financiar los activos de la empresa</p>
+          <div class="indicator"></div>
+          <p>El nivel de apalancamiento total para tus estados financieros es <strong class="indicator-state"></strong></p>
+          <p class="indicator-explanation"></p>
+        </section>
+      </section>
+    </article>
+    <section class="modal" hidden>
+      <article>
+        <div class="modal-header">
+          <h3></h3>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-content">
+          <p></p>
+          <p></p>
+        </div>
+      </article>
+    </section>
+  </body>
+  <script src="js/index.js"></script>
+</html>
