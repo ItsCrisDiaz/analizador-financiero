@@ -557,23 +557,34 @@ input[type="number"]::-webkit-outer-spin-button {
 .indicator {
   display: flex;
   place-items: center;
+  margin-left: auto;
+  margin-right: auto;
   width: 15rem;
   height: 15rem;
   border-radius: 50%;
   font-size: 4rem;
 }
 
-.correct {
+.correct.border {
   border: 10px double var(--correct-indicator);
+}
+
+.correct.text {
   color: var(--correct-indicator);
 }
 
-.wrong {
+.wrong.border {
   border: 10px double var(--wrong-indicator);
+}
+
+.wrong.text {
   color: var(--wrong-indicator);
 }
 
-.warning {
+.warning.border {
   border: 10px double var(--warning-indicator);
+}
+
+.warning.text {
   color: var(--warning-indicator);
 }

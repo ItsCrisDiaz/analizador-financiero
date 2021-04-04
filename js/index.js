@@ -2,6 +2,9 @@
 //VARIABLES
 //########################################
 
+import INDICATORS_MESSAGES from "./messageList.js";
+console.log(INDICATORS_MESSAGES);
+
 //formInformation, added in global scope to be used in multiple functions.
 let formInformation;
 
@@ -248,6 +251,111 @@ const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
   hiddenSectionFalse.hidden = false;
 };
 
+// **
+// * Calculates an indicator and renderizes it in the corresponding querySelector
+// * @param {array value} dividend              value of an array that acts as the dividend of the operation.
+// * @param {array value} divisor               value of an array that acts as the divisor of the operation.
+// * @param {text} idName                       name of the id where the corresponding nodes are located.
+// * @param {number} possibleResults            number of possible results for this indicator.
+// * @param {number} positiveResultConditional  minimal value which the indicator's value is considered a positive result.
+// * @param {number} negativeResultsConditional minimal value where an indicador can be considered as a negative result.
+// * @param {number} warningResultsConditional  minimal value where an indicator can be considered as a warning result.
+// * @param {text} positiveText                 text that is showed when a result is considered positive.
+// * @param {text} negativeText                 text that is showed when a result is considered negative.
+// * @param {text} warningText                  text that is showed when a result is considered as warning.
+// * @param {text} positiveDescription          description that is showed when the indicator's result is positive.
+// * @param {text} negativeDescription          description that is renderized when the indicator's result is negative.
+// * @param {text} warningDescription           description that is used when the indicator's results shows a warning.
+// */
+
+const calculation = function (indicator) {
+  switch (indicator) {
+    case "razonCorriente":
+      return (
+        formInformation.currentAssetsTotal /
+        formInformation.totalCurrentLiabilities
+      ).toFixed(2);
+    case "pruebaAcida":
+      return (
+        (formInformation.currentAssetsTotal - formInformation.inventory) /
+        formInformation.totalCurrentLiabilities
+      ).toFixed(2);
+    default:
+      return 0;
+  }
+};
+
+const caseIndicator = (indicator, result) => {
+  switch (indicator) {
+    case "razonCorriente":
+      if (result >= 1 && result < 2) {
+        return "positive";
+      } else if (result >= 2) {
+        return "warning";
+      } else {
+        return "negative";
+      }
+    case "pruebaAcida":
+      if (result >= 1 && result < 2) {
+        return "positive";
+      } else if (result >= 2) {
+        return "warning";
+      } else {
+        return "negative";
+      }
+  }
+};
+
+const addClassAndMessage = (indicator, result) => {
+  let indicatorNode = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} .indicator`
+  );
+  let indicatorStateNode = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} .indicator-state`
+  );
+  let indicatorStateExplanation = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} .indicator-explanation`
+  );
+  let caseIndicatorResult = caseIndicator(indicator, result);
+
+  if (caseIndicatorResult === "positive") {
+    indicatorNode.classList.add("correct");
+    indicatorNode.classList.remove("wrong", "warning");
+    indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].positiveText}`;
+    indicatorStateNode.classList.add("correct");
+    indicatorStateNode.classList.remove("wrong", "warning");
+    indicatorStateExplanation.innerHTML = `${INDICATORS_MESSAGES[indicator].positiveMessage}`;
+  } else if (caseIndicatorResult === "negative") {
+    indicatorNode.classList.add("wrong");
+    indicatorNode.classList.remove("correct", "warning");
+    indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].negativeText}`;
+    indicatorStateNode.classList.add("wrong");
+    indicatorStateNode.classList.remove("correct", "warning");
+    indicatorStateExplanation.innerHTML = `${INDICATORS_MESSAGES[indicator].negativeMessage}`;
+  } else {
+    indicatorNode.classList.add("warning");
+    indicatorNode.classList.remove("correct", "wrong");
+    indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].warningText}`;
+    indicatorStateNode.classList.add("warning");
+    indicatorStateNode.classList.remove("correct", "wrong");
+    indicatorStateExplanation.innerHTML = `${INDICATORS_MESSAGES[indicator].warningMessage}`;
+  }
+};
+
+const showIndicator = function (indicator) {
+  let indicatorCalculation = calculation(indicator);
+  let indicatorNode = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} .indicator`
+  );
+  if (INDICATORS_MESSAGES[indicator].percentage === true) {
+    indicatorNode.innerHTML = `${indicatorCalculation}%`;
+  } else {
+    indicatorNode.innerHTML = `${indicatorCalculation}`;
+  }
+
+  addClassAndMessage(indicator, indicatorCalculation);
+};
+
 //########################################
 //EVENT LISTENERS
 //########################################
@@ -301,7 +409,14 @@ document.addEventListener("click", function (e) {
 
 //Generate report event listener
 
-// SUBMIT_FORM.addEventListener("click", getValue);
+SUBMIT_FORM.addEventListener("click", function () {
+  // showIndicator("razonCorriente");
+  // showIndicator("pruebaAcida");
+
+  Object.keys(INDICATORS_MESSAGES).forEach((indicator) =>
+    showIndicator(indicator)
+  );
+});
 
 //Sections Event Listeners
 
@@ -359,12 +474,5 @@ PROFIT_AND_LOSS_SECTION.addEventListener("change", function (e) {
     NET_INCOME_INPUT.value = calculation;
     getValue();
     createSummary();
-  }
-});
-
-document.addEventListener("keychange", function () {
-  if (e.target && e.target.matches(DATABASE_INPUTS)) {
-    let myNumeral = numeral(DATABASE_INPUTS.value).format("$ 0,0[.]00");
-    console.log(myNumeral);
   }
 });
