@@ -28,22 +28,28 @@ const INDICATORS_MESSAGES = {
   pruebaDefensiva: {
     id: "cashRatio",
     percentage: false,
-    warningText: "",
-    positiveText: "",
-    negativeText: "",
-    warningMessage: "",
-    positiveMessage: "",
-    negativeMessage: "",
+    warningText: "bueno, pero requiere observación",
+    positiveText: "bueno",
+    negativeText: "malo",
+    warningMessage:
+      "Tu prueba defensiva está bien, pero un indicador puede ser sinónimo de que tu empresa no está invirtiendo lo suficiente para hacer rentable tu empresa en el largo plazo.",
+    positiveMessage:
+      "Tus estados financieros reflejan que tienes la capacidad para cubrir una buena parte de tus obligaciones a corto plazo sólamente con tu efectivo, lo cual es un buen indicador de que tu empresa tiene la solvencia suficiente para seguir funcionando.",
+    negativeMessage:
+      "Tus estados financieros reflejan que tu negocio no tiene el efectivo suficiente para cubrir tus obligaciones a corto plazo, lo cual muestra que -al menos contando únicamente con el dinero en efectivo- en este momento tu empresa muestra problemas para cubrir tus obligaciones a corto plazo.",
   },
   endeudamientoTotal: {
     id: "debtRatio",
     percentage: true,
-    warningText: "",
-    positiveText: "",
-    negativeText: "",
-    warningMessage: "",
-    positiveMessage: "",
-    negativeMessage: "",
+    warningText: "alto",
+    positiveText: "normal",
+    negativeText: "muy alto",
+    warningMessage:
+      "Un nivel de endeudamiento como este indica que tienes un nivel de deuda total casi tan alto como tus activos, lo cual puede indicar que tu empresa tiene mucha más deuda de lo necesario.",
+    positiveMessage:
+      "Tu nivel de endeudamiento indica que la cantidad de obligaciones que la empresa tiene está dentro de los límites normales y no genera mayor nivel de preocupación.",
+    negativeMessage:
+      "Tu nivel de endeudamiento indica que tienes más deudas que bienes en tu empresa, lo cual es una mala señal. La empresa debería considerar tomar acciones inmediatas para empezar a reducir el nivel de deuda",
   },
   apalancamientoTotal: {
     id: "debtToEquityRatio",
@@ -77,6 +83,16 @@ const INDICATORS_MESSAGES = {
   },
   rentabilidadSobreActivos: {
     id: "returnOnAssets",
+    percentage: true,
+    warningText: "",
+    positiveText: "",
+    negativeText: "",
+    warningMessage: "",
+    positiveMessage: "",
+    negativeMessage: "",
+  },
+  rentabilidadSobrePatrimonio: {
+    id: "returnOnEquity",
     percentage: true,
     warningText: "",
     positiveText: "",

@@ -169,7 +169,7 @@ const getValue = function () {
     {}
   );
 
-  console.log(formInformation);
+  console.table(formInformation);
 };
 
 // **
@@ -251,23 +251,6 @@ const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
   hiddenSectionFalse.hidden = false;
 };
 
-// **
-// * Calculates an indicator and renderizes it in the corresponding querySelector
-// * @param {array value} dividend              value of an array that acts as the dividend of the operation.
-// * @param {array value} divisor               value of an array that acts as the divisor of the operation.
-// * @param {text} idName                       name of the id where the corresponding nodes are located.
-// * @param {number} possibleResults            number of possible results for this indicator.
-// * @param {number} positiveResultConditional  minimal value which the indicator's value is considered a positive result.
-// * @param {number} negativeResultsConditional minimal value where an indicador can be considered as a negative result.
-// * @param {number} warningResultsConditional  minimal value where an indicator can be considered as a warning result.
-// * @param {text} positiveText                 text that is showed when a result is considered positive.
-// * @param {text} negativeText                 text that is showed when a result is considered negative.
-// * @param {text} warningText                  text that is showed when a result is considered as warning.
-// * @param {text} positiveDescription          description that is showed when the indicator's result is positive.
-// * @param {text} negativeDescription          description that is renderized when the indicator's result is negative.
-// * @param {text} warningDescription           description that is used when the indicator's results shows a warning.
-// */
-
 const calculation = function (indicator) {
   switch (indicator) {
     case "razonCorriente":
@@ -279,6 +262,18 @@ const calculation = function (indicator) {
       return (
         (formInformation.currentAssetsTotal - formInformation.inventory) /
         formInformation.totalCurrentLiabilities
+      ).toFixed(2);
+    case "pruebaDefensiva":
+      return (
+        formInformation.cash / formInformation.totalCurrentLiabilities
+      ).toFixed(2);
+    case "endeudamientoTotal":
+      return (
+        ((formInformation.totalCurrentLiabilities +
+          formInformation.totalNonCurrentLiabilities) /
+          (formInformation.currentAssetsTotal +
+            formInformation.nonCurrentAssetsTotal)) *
+        100
       ).toFixed(2);
     default:
       return 0;
@@ -299,6 +294,22 @@ const caseIndicator = (indicator, result) => {
       if (result >= 1 && result < 2) {
         return "positive";
       } else if (result >= 2) {
+        return "warning";
+      } else {
+        return "negative";
+      }
+    case "pruebaDefensiva":
+      if (result >= 0.5 && result < 1.5) {
+        return "positive";
+      } else if (result >= 1.5) {
+        return "warning";
+      } else {
+        return "negative";
+      }
+    case "endeudamientoTotal":
+      if (result <= 80) {
+        return "positive";
+      } else if (result >= 80 && result < 100) {
         return "warning";
       } else {
         return "negative";
