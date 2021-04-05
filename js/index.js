@@ -275,6 +275,13 @@ const calculation = function (indicator) {
             formInformation.nonCurrentAssetsTotal)) *
         100
       ).toFixed(2);
+    case "apalancamientoTotal": {
+      return (
+        (formInformation.totalCurrentLiabilities +
+          formInformation.totalNonCurrentLiabilities) /
+        formInformation.equity
+      ).toFixed(2);
+    }
     default:
       return 0;
   }
@@ -314,6 +321,16 @@ const caseIndicator = (indicator, result) => {
       } else {
         return "negative";
       }
+    case "apalancamientoTotal":
+      if (result < 1.5) {
+        return "positive";
+      } else if (result >= 1.5 && result < 2) {
+        return "warning";
+      } else {
+        return "negative";
+      }
+    default:
+      return "positive";
   }
 };
 

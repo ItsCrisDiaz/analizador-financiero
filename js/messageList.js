@@ -54,12 +54,15 @@ const INDICATORS_MESSAGES = {
   apalancamientoTotal: {
     id: "debtToEquityRatio",
     percentage: false,
-    warningText: "",
-    positiveText: "",
-    negativeText: "",
-    warningMessage: "",
-    positiveMessage: "",
-    negativeMessage: "",
+    warningText: "alto",
+    positiveText: "normal",
+    negativeText: "muy alto",
+    warningMessage:
+      "Tu nivel de apalancamiento es algo alto, lo que indica que tal ves estás empezando a acumular más deuda de la necesaria para funcionar. Esto también genera un riesgo en caso de que busques inversionistas porque entre mayor este indicador, mayor el riesgo que estos pueden tener al momento de invertir.",
+    positiveMessage:
+      "Tu nivel de apalancamiento está en niveles normales, lo que indica que la empresa tiene un nivel de deuda aceptable y no compromete la capacidad de la empresa para realizar sus operaciones.",
+    negativeMessage:
+      "Tu nivel de apalancamiento es muy alto, lo que indica que la empresa posee demasiada deuda en relación con el patrimonio de la empresa. Esto también indica que un inversionista tendría un riesgo muy alto de invertir en tu negocio. Se recomienda tomar acciones para poder reducir la deuda a un nivel razonable.",
   },
   margenBrutoDeUtilidad: {
     id: "grossMargin",
