@@ -254,34 +254,90 @@ const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
 const calculation = function (indicator) {
   switch (indicator) {
     case "razonCorriente":
-      return (
-        formInformation.currentAssetsTotal /
-        formInformation.totalCurrentLiabilities
-      ).toFixed(2);
+      if (formInformation.totalCurrentLiabilities === 0) {
+        return "N/A";
+      } else {
+        return (
+          formInformation.currentAssetsTotal /
+          formInformation.totalCurrentLiabilities
+        ).toFixed(2);
+      }
     case "pruebaAcida":
-      return (
-        (formInformation.currentAssetsTotal - formInformation.inventory) /
-        formInformation.totalCurrentLiabilities
-      ).toFixed(2);
+      if (formInformation.totalCurrentLiabilities === 0) {
+        return "N/A";
+      } else {
+        return (
+          (formInformation.currentAssetsTotal - formInformation.inventory) /
+          formInformation.totalCurrentLiabilities
+        ).toFixed(2);
+      }
     case "pruebaDefensiva":
-      return (
-        formInformation.cash / formInformation.totalCurrentLiabilities
-      ).toFixed(2);
+      if (formInformation.totalCurrentLiabilities == 0) {
+        return "N/A";
+      } else {
+        return (
+          formInformation.cash / formInformation.totalCurrentLiabilities
+        ).toFixed(2);
+      }
     case "endeudamientoTotal":
-      return (
-        ((formInformation.totalCurrentLiabilities +
-          formInformation.totalNonCurrentLiabilities) /
-          (formInformation.currentAssetsTotal +
-            formInformation.nonCurrentAssetsTotal)) *
-        100
-      ).toFixed(2);
-    case "apalancamientoTotal": {
-      return (
-        (formInformation.totalCurrentLiabilities +
-          formInformation.totalNonCurrentLiabilities) /
-        formInformation.equity
-      ).toFixed(2);
-    }
+      if (
+        formInformation.currentAssetsTotal +
+          formInformation.nonCurrentAssetsTotal ===
+        0
+      ) {
+        return "N/A";
+      } else {
+        return (
+          ((formInformation.totalCurrentLiabilities +
+            formInformation.totalNonCurrentLiabilities) /
+            (formInformation.currentAssetsTotal +
+              formInformation.nonCurrentAssetsTotal)) *
+          100
+        ).toFixed(2);
+      }
+    case "apalancamientoTotal":
+      if (formInformation.equity === 0) {
+        return "N/A";
+      } else {
+        return (
+          (formInformation.totalCurrentLiabilities +
+            formInformation.totalNonCurrentLiabilities) /
+          formInformation.equity
+        ).toFixed(2);
+      }
+    case "margenBrutoDeUtilidad":
+      if (formInformation.operatingRevenue === 0) {
+        return "N/A";
+      } else {
+        return (
+          (formInformation.grossProfit / formInformation.operatingRevenue) *
+          100
+        ).toFixed(2);
+      }
+    case "margenNetoDeUtilidad":
+      if (formInformation.operatingRevenue === 0) {
+        return "N/A";
+      } else {
+        return (
+          (formInformation.netIncome / formInformation.operatingRevenue) *
+          100
+        ).toFixed(2);
+      }
+    case "rentabilidadSobreActivos":
+      if (
+        formInformation.currentAssetsTotal +
+          formInformation.nonCurrentAssetsTotal ===
+        0
+      ) {
+        return "N/A";
+      } else {
+        return (
+          (formInformation.netIncome /
+            (formInformation.currentAssetsTotal +
+              formInformation.nonCurrentAssetsTotal)) *
+          100
+        ).toFixed(2);
+      }
     default:
       return 0;
   }
@@ -329,6 +385,24 @@ const caseIndicator = (indicator, result) => {
       } else {
         return "negative";
       }
+    case "margenBrutoDeUtilidad":
+      if (result > 0) {
+        return "positive";
+      } else {
+        return "negative";
+      }
+    case "margenNetoDeUtilidad":
+      if (result > 0) {
+        return "positive";
+      } else {
+        return "negative";
+      }
+    case "rentabilidadSobreActivos":
+      if (result > 0) {
+        return "positive";
+      } else {
+        return "negative";
+      }
     default:
       return "positive";
   }
@@ -344,9 +418,18 @@ const addClassAndMessage = (indicator, result) => {
   let indicatorStateExplanation = document.querySelector(
     `#${INDICATORS_MESSAGES[indicator].id} .indicator-explanation`
   );
+  let indicatorCalculation = calculation(indicator);
   let caseIndicatorResult = caseIndicator(indicator, result);
 
-  if (caseIndicatorResult === "positive") {
+  if (indicatorCalculation === "N/A") {
+    indicatorNode.classList.add("warning");
+    indicatorNode.classList.remove("correct", "wrong");
+    indicatorStateNode.innerHTML = "No aplicable a tus estados";
+    indicatorStateNode.classList.add("warning");
+    indicatorStateNode.classList.remove("correct", "wrong");
+    indicatorStateExplanation.innerHTML =
+      "No es posible calcular este indicador financiero con base en la información brindada.";
+  } else if (caseIndicatorResult === "positive") {
     indicatorNode.classList.add("correct");
     indicatorNode.classList.remove("wrong", "warning");
     indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].positiveText}`;
@@ -375,7 +458,9 @@ const showIndicator = function (indicator) {
   let indicatorNode = document.querySelector(
     `#${INDICATORS_MESSAGES[indicator].id} .indicator`
   );
-  if (INDICATORS_MESSAGES[indicator].percentage === true) {
+  if (indicatorCalculation === "N/A") {
+    indicatorNode.innerHTML = `${indicatorCalculation}`;
+  } else if (INDICATORS_MESSAGES[indicator].percentage === true) {
     indicatorNode.innerHTML = `${indicatorCalculation}%`;
   } else {
     indicatorNode.innerHTML = `${indicatorCalculation}`;
