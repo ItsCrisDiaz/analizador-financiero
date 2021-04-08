@@ -3,7 +3,6 @@
 //########################################
 
 import INDICATORS_MESSAGES from "./messageList.js";
-console.log(INDICATORS_MESSAGES);
 
 //formInformation, added in global scope to be used in multiple functions.
 let formInformation;
@@ -44,6 +43,7 @@ const LIABILITIES_AND_EQUITY_SECTION = document.querySelector(
 );
 const PROFIT_AND_LOSS_SECTION = document.querySelector("#profitAndLoss");
 const SUMMARY_SECTION = document.querySelector("#summary");
+const REPORT_SECTION = document.querySelector("#report");
 const SUBMIT_FORM = document.querySelector("#generateContent");
 
 //Profit and loss nodes
@@ -168,8 +168,6 @@ const getValue = function () {
     (acc, input) => ({ ...acc, [input.id]: parseInt(input.value) }),
     {}
   );
-
-  console.table(formInformation);
 };
 
 // **
@@ -523,12 +521,10 @@ document.addEventListener("click", function (e) {
 //Generate report event listener
 
 SUBMIT_FORM.addEventListener("click", function () {
-  // showIndicator("razonCorriente");
-  // showIndicator("pruebaAcida");
-
   Object.keys(INDICATORS_MESSAGES).forEach((indicator) =>
     showIndicator(indicator)
   );
+  changeSectionButton(SUMMARY_SECTION, REPORT_SECTION);
 });
 
 //Sections Event Listeners
