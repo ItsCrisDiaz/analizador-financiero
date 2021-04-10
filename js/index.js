@@ -3,6 +3,7 @@
 //########################################
 
 import INDICATORS_MESSAGES from "./messageList.js";
+import { MODAL_SECTION, MODAL_CLOSE, createModalContent } from "./modal.js";
 
 //formInformation, added in global scope to be used in multiple functions.
 let formInformation;
@@ -63,17 +64,6 @@ const NON_OPERATING_EXPENSES_INPUT = document.querySelector(
 );
 const NET_INCOME_INPUT = document.querySelector("#netIncome");
 const DATABASE_INPUTS = document.querySelectorAll("[data-value='result']");
-
-//Modal nodes
-const MODAL_SECTION = document.querySelector(".modal");
-const MODAL_TITLE = document.querySelector(".modal-header h3");
-const MODAL_CONTENT_DESCRIPTION = document.querySelector(
-  ".modal-content p:nth-child(1)"
-);
-const MODAL_CONTENT_EXAMPLES = document.querySelector(
-  ".modal-content p:nth-child(2)"
-);
-const MODAL_CLOSE = document.querySelector(".close");
 
 //Class nodes
 
@@ -160,7 +150,7 @@ const groupSum = function (idSelector, classSelector) {
 
 const getValue = function () {
   // Getting the information from all inputs with the data-value[result] attribute
-  let selectFormValue = document.querySelectorAll("[data-value='result']");
+  let selectFormValue = DATABASE_INPUTS;
 
   // Using selectFormValue information to create an array and store it in formInformation
 
@@ -200,53 +190,14 @@ const createSummary = function () {
   });
 };
 
-// **
-// * Generates the content of the modal section using the information in three different data attributes.
-// * @param {}
-// */
-
-const createModalContent = function (e) {
-  // Selects the data attributes corresponding to name, description and examples
-  let supName = e.target.getAttribute("data-name");
-  let supDescription = e.target.getAttribute("data-description");
-  let supExamples = e.target.getAttribute("data-examples");
-
-  // Adds the content of name, description and example to the respective nodes
-
-  MODAL_TITLE.innerHTML = supName;
-  MODAL_CONTENT_DESCRIPTION.innerHTML = supDescription;
-  MODAL_CONTENT_EXAMPLES.innerHTML = supExamples;
-
-  // Checks if data-examples has any content
-
-  if (supExamples === "") {
-    // If it doesn't, hides the node
-    MODAL_CONTENT_EXAMPLES.hidden = true;
-  } else {
-    // If it does, shows the node and adds the content of the example to the respective node.
-    MODAL_CONTENT_EXAMPLES.hidden = false;
-  }
-
-  // Changes the overflow of the website to hidden to avoid users can scroll in the site while the modal is open
-
-  document.getElementsByTagName("html")[0].style.overflow = "hidden";
-
-  // Shows the previously created modal
-  MODAL_SECTION.hidden = false;
-};
-
-// **
-// * Shows a node in the page while hidding another one
-// * @param {node} hiddenSectionTrue   const with the node that needs to be hidden
-// * @param {node} hiddenSectionFalse  const with the node that needs to be showed
-// */
-
 const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
   //Hides the node in the parameter hiddenSectionTrue
   hiddenSectionTrue.hidden = true;
 
   //Shows the node in the parameter hiddenSectionFalse
   hiddenSectionFalse.hidden = false;
+
+  window.location = `#${hiddenSectionFalse.id}`;
 };
 
 const calculation = function (indicator) {
