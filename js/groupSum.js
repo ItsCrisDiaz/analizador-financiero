@@ -1,3 +1,5 @@
+import equitySum from "./equitySum.js";
+
 // **
 // * Calculates the total amount of a group
 // * @param {const} idSelector      const with the node of the neccesary section
@@ -29,3 +31,5 @@ const groupSum = function (idSelector, classSelector) {
   //Calling the function equitySum to update the total of equity
   equitySum();
 };
+
+export default groupSum;
