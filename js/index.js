@@ -3,112 +3,53 @@
 //########################################
 
 import INDICATORS_MESSAGES from "./messageList.js";
+
 import { MODAL_SECTION, MODAL_CLOSE, createModalContent } from "./modal.js";
+
+import {
+  INSTRUCTION_BUTTON,
+  ASSETS_NEXT_BUTTON,
+  ASSETS_BACK_BUTTON,
+  LIABILITIES_AND_EQUITY_NEXT_BUTTON,
+  LIABILITIES_AND_EQUITY_BACK_BUTTON,
+  PROFIT_AND_LOSS_NEXT_BUTTON,
+  PROFIT_AND_LOSS_BACK_BUTTON,
+  SUMMARY_ASSETS_BUTTON,
+  SUMMARY_LIABILITIES_AND_EQUITY_BUTTON,
+  SUMMARY_PROFIT_AND_LOSS_BUTTON,
+} from "./buttonNodes.js";
+
+import {
+  INSTRUCTIONS_SECTION,
+  ASSETS_SECTION,
+  LIABILITIES_AND_EQUITY_SECTION,
+  PROFIT_AND_LOSS_SECTION,
+  SUMMARY_SECTION,
+  REPORT_SECTION,
+  SUBMIT_FORM,
+  DATABASE_INPUTS,
+} from "./sectionNodes.js";
+
+import {
+  OPERATING_REVENUE_INPUT,
+  COST_OF_GOOD_SOLD_INPUT,
+  GROSS_PROFIT_INPUT,
+  ADMINISTRATIVE_EXPENSES_INPUT,
+  SALES_EXPENSES_INPUT,
+  OPERATING_INCOME_INPUT,
+  NON_OPERATING_INCOME_INPUT,
+  NON_OPERATING_EXPENSES_INPUT,
+  NET_INCOME_INPUT,
+} from "./profitAndLossNodes.js";
 
 //formInformation, added in global scope to be used in multiple functions.
 let formInformation;
-
-//QUERY SELECTORS
-
-//Buttons nodes
-const INSTRUCTION_BUTTON = document.querySelector("#instructions button");
-const ASSETS_NEXT_BUTTON = document.querySelector("#assets .next");
-const ASSETS_BACK_BUTTON = document.querySelector("#assets .back");
-const LIABILITIES_AND_EQUITY_NEXT_BUTTON = document.querySelector(
-  "#liabilitiesAndEquity .next"
-);
-const LIABILITIES_AND_EQUITY_BACK_BUTTON = document.querySelector(
-  "#liabilitiesAndEquity .back"
-);
-const PROFIT_AND_LOSS_NEXT_BUTTON = document.querySelector(
-  "#profitAndLoss .next"
-);
-const PROFIT_AND_LOSS_BACK_BUTTON = document.querySelector(
-  "#profitAndLoss .back"
-);
-const SUMMARY_ASSETS_BUTTON = document.querySelector(
-  "#summary .back-buttons button:nth-child(1)"
-);
-const SUMMARY_LIABILITIES_AND_EQUITY_BUTTON = document.querySelector(
-  "#summary .back-buttons button:nth-child(2)"
-);
-const SUMMARY_PROFIT_AND_LOSS_BUTTON = document.querySelector(
-  "#summary .back-buttons button:nth-child(3)"
-);
-
-//Sections nodes
-const INSTRUCTIONS_SECTION = document.querySelector("#instructions");
-const ASSETS_SECTION = document.querySelector("#assets");
-const LIABILITIES_AND_EQUITY_SECTION = document.querySelector(
-  "#liabilitiesAndEquity"
-);
-const PROFIT_AND_LOSS_SECTION = document.querySelector("#profitAndLoss");
-const SUMMARY_SECTION = document.querySelector("#summary");
-const REPORT_SECTION = document.querySelector("#report");
-const SUBMIT_FORM = document.querySelector("#generateContent");
-
-//Profit and loss nodes
-const OPERATING_REVENUE_INPUT = document.querySelector("#operatingRevenue");
-const COST_OF_GOOD_SOLD_INPUT = document.querySelector("#costOfGoodSolds");
-const GROSS_PROFIT_INPUT = document.querySelector("#grossProfit");
-const ADMINISTRATIVE_EXPENSES_INPUT = document.querySelector(
-  "#administrativeExpenses"
-);
-const SALES_EXPENSES_INPUT = document.querySelector("#salesExpenses");
-const OPERATING_INCOME_INPUT = document.querySelector("#operatingIncome");
-const NON_OPERATING_INCOME_INPUT = document.querySelector(
-  "#nonOperatingIncome"
-);
-const NON_OPERATING_EXPENSES_INPUT = document.querySelector(
-  "#nonOperatingExpense"
-);
-const NET_INCOME_INPUT = document.querySelector("#netIncome");
-const DATABASE_INPUTS = document.querySelectorAll("[data-value='result']");
-
-//Class nodes
 
 //########################################
 //FUNCTIONS
 //########################################
 
-// **
-// * Calculates the total amount of the equity according to user's inputs
-// * @param {}
-// * @return {Number} The total of equity and adds it to an specific node
-// */
-const equitySum = function () {
-  //Declares the let equityValue and assigns it with the total amount of current assets.
-  let equityValue = parseFloat(
-    ASSETS_SECTION.querySelector(".current-assets-value[disabled]").value
-  );
-
-  //Adds the total amount of non current assets.
-  equityValue += parseFloat(
-    ASSETS_SECTION.querySelector(".non-current-assets-value[disabled]").value
-  );
-
-  //Substracts the total amount of current liabilities.
-  equityValue -= parseFloat(
-    LIABILITIES_AND_EQUITY_SECTION.querySelector(
-      ".current-liabilities-value[disabled]"
-    ).value
-  );
-
-  //Substract the total amount of non current liabilities.
-  equityValue -= parseFloat(
-    LIABILITIES_AND_EQUITY_SECTION.querySelector(
-      ".non-current-liabilities-value[disabled]"
-    ).value
-  );
-
-  //Declares the let equityValueInput and assigns it with the node designated input to show the equity total
-  let equityValueInput = LIABILITIES_AND_EQUITY_SECTION.querySelector(
-    ".equity-value"
-  );
-
-  //Changes the value of the equityValueInput node with the let equityValue.
-  equityValueInput.value = equityValue;
-};
+import equitySum from "./equitySum.js";
 
 // **
 // * Calculates the total amount of a group
