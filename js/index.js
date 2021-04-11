@@ -42,32 +42,17 @@ import {
   NET_INCOME_INPUT,
 } from "./profitAndLossNodes.js";
 
-//formInformation, added in global scope to be used in multiple functions.
-let formInformation;
+import { formInformation } from "./getValue.js";
 
 //########################################
 //FUNCTIONS
 //########################################
 
+import equitySum from "./equitySum.js";
+
 import groupSum from "./groupSum.js";
 
-// **
-// * Creates an array with the id and values of all inputs in the page.
-// * @param {}
-// * @return {Array} Array with ids as key and inputs as values.
-// */
-
-const getValue = function () {
-  // Getting the information from all inputs with the data-value[result] attribute
-  let selectFormValue = DATABASE_INPUTS;
-
-  // Using selectFormValue information to create an array and store it in formInformation
-
-  formInformation = Array.from(selectFormValue).reduce(
-    (acc, input) => ({ ...acc, [input.id]: parseInt(input.value) }),
-    {}
-  );
-};
+import { getValue } from "./getValue.js";
 
 // **
 // * Brings all values of getValue() and puts them in the summary section
