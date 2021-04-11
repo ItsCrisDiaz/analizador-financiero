@@ -2,9 +2,9 @@
 //VARIABLES
 //########################################
 
-import INDICATORS_MESSAGES from "./messageList.js";
+import INDICATORS_MESSAGES from "./objects/messageList.js";
 
-import { MODAL_SECTION, MODAL_CLOSE } from "./modal.js";
+import { MODAL_SECTION, MODAL_CLOSE } from "./nodes/modal.js";
 
 import {
   INSTRUCTION_BUTTON,
@@ -17,7 +17,7 @@ import {
   SUMMARY_ASSETS_BUTTON,
   SUMMARY_LIABILITIES_AND_EQUITY_BUTTON,
   SUMMARY_PROFIT_AND_LOSS_BUTTON,
-} from "./buttonNodes.js";
+} from "./nodes/buttonNodes.js";
 
 import {
   INSTRUCTIONS_SECTION,
@@ -28,7 +28,7 @@ import {
   REPORT_SECTION,
   SUBMIT_FORM,
   DATABASE_INPUTS,
-} from "./sectionNodes.js";
+} from "./nodes/sectionNodes.js";
 
 import {
   OPERATING_REVENUE_INPUT,
@@ -40,27 +40,23 @@ import {
   NON_OPERATING_INCOME_INPUT,
   NON_OPERATING_EXPENSES_INPUT,
   NET_INCOME_INPUT,
-} from "./profitAndLossNodes.js";
-
-import { formInformation } from "./getValue.js";
+} from "./nodes/profitAndLossNodes.js";
 
 //########################################
 //FUNCTIONS
 //########################################
 
-import equitySum from "./equitySum.js";
+import groupSum from "./functions/groupSum.js";
 
-import groupSum from "./groupSum.js";
+import { getValue } from "./functions/getValue.js";
 
-import { getValue } from "./getValue.js";
+import createModalContent from "./functions/createModalContent.js";
 
-import { createModalContent } from "./modal.js";
+import createSummary from "./functions/createSummary.js";
 
-import createSummary from "./createSummary.js";
+import changeSectionButton from "./functions/changeSectionButton.js";
 
-import changeSectionButton from "./changeSectionButton.js";
-
-import showIndicator from "./showIndicator.js";
+import showIndicator from "./functions/showIndicator.js";
 
 //########################################
 //EVENT LISTENERS

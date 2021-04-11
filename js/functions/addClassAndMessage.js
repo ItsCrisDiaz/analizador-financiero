@@ -1,4 +1,4 @@
-import INDICATORS_MESSAGES from "./messageList.js";
+import INDICATORS_MESSAGES from "../objects/messageList.js";
 import calculation from "./calculation.js";
 import caseIndicator from "./caseIndicator.js";
 

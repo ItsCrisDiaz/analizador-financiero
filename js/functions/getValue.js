@@ -1,4 +1,4 @@
-import { DATABASE_INPUTS } from "./sectionNodes.js";
+import { DATABASE_INPUTS } from "../nodes/sectionNodes.js";
 
 //formInformation, added in global scope to be used in multiple functions.
 let formInformation;
