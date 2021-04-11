@@ -4,7 +4,7 @@
 
 import INDICATORS_MESSAGES from "./messageList.js";
 
-import { MODAL_SECTION, MODAL_CLOSE, createModalContent } from "./modal.js";
+import { MODAL_SECTION, MODAL_CLOSE } from "./modal.js";
 
 import {
   INSTRUCTION_BUTTON,
@@ -54,45 +54,11 @@ import groupSum from "./groupSum.js";
 
 import { getValue } from "./getValue.js";
 
-// **
-// * Brings all values of getValue() and puts them in the summary section
-// * @param {}
-// */
-const createSummary = function () {
-  // Creates an array with all the keys of formInformation
+import { createModalContent } from "./modal.js";
 
-  let inputKeys = Object.keys(formInformation);
+import createSummary from "./createSummary.js";
 
-  // Looks for each value in the created array
-  inputKeys.forEach(function (item) {
-    // Brings the name of the ID of the element in summary section
-    let summaryKeyName = `#${item}Summary`;
-
-    // looks for the node with this ID
-    let summaryNode = document.querySelector(summaryKeyName);
-
-    // Extract the value of the required key in formInformation
-    let inputNode = document.querySelector(`#${item}`).value;
-
-    inputNode = new Intl.NumberFormat("es-CO", {
-      style: "currency",
-      currency: "COP",
-    }).format(inputNode);
-
-    // Changes the content of the node with the extracted value
-    summaryNode.innerHTML = inputNode;
-  });
-};
-
-const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
-  //Hides the node in the parameter hiddenSectionTrue
-  hiddenSectionTrue.hidden = true;
-
-  //Shows the node in the parameter hiddenSectionFalse
-  hiddenSectionFalse.hidden = false;
-
-  window.location = `#${hiddenSectionFalse.id}`;
-};
+import changeSectionButton from "./changeSectionButton.js";
 
 const calculation = function (indicator) {
   switch (indicator) {
@@ -357,7 +323,7 @@ document.addEventListener("click", function (e) {
   } else if (e.target === SUMMARY_ASSETS_BUTTON) {
     changeSectionButton(SUMMARY_SECTION, ASSETS_SECTION);
   } else if (e.target === SUMMARY_LIABILITIES_AND_EQUITY_BUTTON) {
-    changeSectionButton(SUMMARY_SECTION, SUMMARY_LIABILITIES_AND_EQUITY_BUTTON);
+    changeSectionButton(SUMMARY_SECTION, LIABILITIES_AND_EQUITY_SECTION);
   } else if (e.target === SUMMARY_PROFIT_AND_LOSS_BUTTON) {
     changeSectionButton(SUMMARY_SECTION, PROFIT_AND_LOSS_SECTION);
   }
