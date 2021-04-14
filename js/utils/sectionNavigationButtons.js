@@ -1,17 +1,22 @@
 import showIndicator from "../functions/showIndicator.js";
-import {
-  INSTRUCTIONS_SECTION,
-  ASSETS_SECTION,
-  LIABILITIES_AND_EQUITY_SECTION,
-  PROFIT_AND_LOSS_SECTION,
-  SUMMARY_SECTION,
-  REPORT_SECTION,
-} from "../nodes/sectionNodes.js";
 import INDICATORS_MESSAGES from "../objects/messageList.js";
 
 //############################################
 //NODES
 //############################################
+
+//Section nodes
+
+const INSTRUCTIONS_SECTION = document.querySelector("#instructions");
+const ASSETS_SECTION = document.querySelector("#assets");
+const LIABILITIES_AND_EQUITY_SECTION = document.querySelector(
+  "#liabilitiesAndEquity"
+);
+const PROFIT_AND_LOSS_SECTION = document.querySelector("#profitAndLoss");
+const SUMMARY_SECTION = document.querySelector("#summary");
+const REPORT_SECTION = document.querySelector("#report");
+
+//Button nodes
 
 const INSTRUCTION_BUTTON = document.querySelector("#instructions button");
 const ASSETS_NEXT_BUTTON = document.querySelector("#assets .next");
@@ -61,6 +66,10 @@ const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
   history.pushState({ page_id: 1 }, "", pageUrl);
   document.title = `${hiddenSectionFalse.querySelector("h2").innerHTML}`;
 };
+
+//############################################
+//EVENT LISTENERS
+//############################################
 
 const buttonEventListeners = document.addEventListener("click", function (e) {
   if (e.target === INSTRUCTION_BUTTON) {
