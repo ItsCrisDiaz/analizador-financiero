@@ -1,6 +1,6 @@
 import INDICATORS_MESSAGES from "../objects/messageList.js";
-import createModalContent from "../functions/createModalContent.js";
-import { MODAL_SECTION, MODAL_CLOSE } from "../nodes/modal.js";
+// import createModalContent from "../functions/createModalContent.js";
+// import { MODAL_SECTION, MODAL_CLOSE } from "../nodes/modal.js";
 
 import {
   INSTRUCTIONS_SECTION,
@@ -31,19 +31,19 @@ import showIndicator from "../functions/showIndicator.js";
 
 const documentEventListener = document.addEventListener("click", function (e) {
   //Event listener for sup elements
-  if (e.target.nodeName === "SUP") {
-    createModalContent(e);
-    return createModalContent;
-  } //Event listener for MODAL_CLOSE element
-  else if (e.target === MODAL_CLOSE) {
-    // Restores the document's overflow state to normal
-    document.getElementsByTagName("html")[0].style.overflow = "visible";
+  // if (e.target.nodeName === "SUP") {
+  //   createModalContent(e);
+  //   return createModalContent;
+  // } //Event listener for MODAL_CLOSE element
+  // else if (e.target === MODAL_CLOSE) {
+  //   // Restores the document's overflow state to normal
+  //   document.getElementsByTagName("html")[0].style.overflow = "visible";
 
-    // Hides the modal window
-    MODAL_SECTION.hidden = true;
-  }
-  // BUTTONS EVENT LISTENERS
-  else if (e.target === INSTRUCTION_BUTTON) {
+  //   // Hides the modal window
+  //   MODAL_SECTION.hidden = true;
+  // }
+  // // BUTTONS EVENT LISTENERS
+  if (e.target === INSTRUCTION_BUTTON) {
     changeSectionButton(INSTRUCTIONS_SECTION, ASSETS_SECTION);
   } else if (e.target === ASSETS_BACK_BUTTON) {
     changeSectionButton(ASSETS_SECTION, INSTRUCTIONS_SECTION);
