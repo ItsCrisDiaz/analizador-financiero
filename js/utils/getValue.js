@@ -1,9 +1,21 @@
-import { DATABASE_INPUTS } from "../nodes/sectionNodes.js";
+//############################################
+//NODES
+//############################################
 
-//formInformation, added in global scope to be used in multiple functions.
+const DATABASE_INPUTS = document.querySelectorAll("[data-value='result']");
+
+//############################################
+//GLOBAL SCOPE VARIABLES
+//############################################
+
 let formInformation;
 
+//############################################
+//FUNCTIONS
+//############################################
+
 // **
+// * getValue
 // * Creates an array with the id and values of all inputs in the page.
 // * @param {}
 // * @return {Array} Array with ids as key and inputs as values.
@@ -20,5 +32,9 @@ const getValue = function () {
     {}
   );
 };
+
+//############################################
+//EVENT LISTENERS
+//############################################
 
 export { formInformation, getValue };

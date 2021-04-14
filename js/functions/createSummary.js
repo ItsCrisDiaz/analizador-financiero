@@ -1,4 +1,4 @@
-import { formInformation } from "./getValue.js";
+import { formInformation } from "../utils/getValue.js";
 
 // **
 // * Brings all values of getValue() and puts them in the summary section

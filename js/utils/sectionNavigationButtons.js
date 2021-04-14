@@ -99,11 +99,14 @@ const buttonEventListeners = document.addEventListener("click", function (e) {
   } else if (e.target === SUMMARY_PROFIT_AND_LOSS_BUTTON) {
     changeSectionButton(SUMMARY_SECTION, PROFIT_AND_LOSS_SECTION);
   } else if (e.target === SUBMIT_FORM_BUTTON) {
-    Object.keys(INDICATORS_MESSAGES).forEach((indicator) =>
-      showIndicator(indicator)
-    );
     changeSectionButton(SUMMARY_SECTION, REPORT_SECTION);
   }
 });
 
-export default buttonEventListeners;
+export {
+  ASSETS_SECTION,
+  LIABILITIES_AND_EQUITY_SECTION,
+  PROFIT_AND_LOSS_SECTION,
+  SUBMIT_FORM_BUTTON,
+  buttonEventListeners,
+};

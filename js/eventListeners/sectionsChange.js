@@ -2,7 +2,7 @@ import {
   ASSETS_SECTION,
   LIABILITIES_AND_EQUITY_SECTION,
   PROFIT_AND_LOSS_SECTION,
-} from "../nodes/sectionNodes.js";
+} from "../utils/sectionNavigationButtons.js";
 
 import {
   OPERATING_REVENUE_INPUT,
@@ -18,7 +18,7 @@ import {
 
 import groupSum from "../functions/groupSum.js";
 
-import { getValue } from "../functions/getValue.js";
+import { getValue } from "../utils/getValue.js";
 
 import createSummary from "../functions/createSummary.js";
 

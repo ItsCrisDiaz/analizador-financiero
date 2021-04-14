@@ -1,6 +1,6 @@
 import INDICATORS_MESSAGES from "../objects/messageList.js";
-import calculation from "./calculation.js";
-import caseIndicator from "./caseIndicator.js";
+import calculation from "../utils/calculationSwitchCase.js";
+import caseIndicator from "../utils/caseIndicatorSwitchCase.js";
 
 const addClassAndMessage = (indicator, result) => {
   let indicatorNode = document.querySelector(

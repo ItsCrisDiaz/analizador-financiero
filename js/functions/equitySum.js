@@ -1,7 +1,7 @@
 import {
   ASSETS_SECTION,
   LIABILITIES_AND_EQUITY_SECTION,
-} from "../nodes/sectionNodes.js";
+} from "../utils/sectionNavigationButtons.js";
 
 // **
 // * Calculates the total amount of the equity according to user's inputs
