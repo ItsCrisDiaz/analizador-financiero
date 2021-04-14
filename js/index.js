@@ -4,7 +4,7 @@
 
 import modalEventListener from "./utils/createModalContent.js";
 
-import documentEventListener from "./eventListeners/documentClick.js";
+import buttonEventListener from "./utils/sectionNavigationButtons.js";
 
 import {
   assetsEventListener,
