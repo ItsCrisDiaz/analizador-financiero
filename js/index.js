@@ -2,8 +2,6 @@
 //EVENT LISTENERS
 //########################################
 
-// import { getArrayEventListener } from "./utils/getValue.js";
-
 import modalEventListener from "./utils/createModalContent.js";
 
 import { buttonEventListeners } from "./utils/sectionNavigationButtons.js";
@@ -17,7 +15,7 @@ import {
 } from "./utils/groupCalculation.js";
 
 import {
-  assetsEventListener,
-  liabilitiesAndEquityEventListener,
-  profitAndLossEventListener,
-} from "./eventListeners/sectionsChange.js";
+  assetsSummaryEventListener,
+  liabilitiesAndEquitySummaryEventListener,
+  profitAndLossSummaryEventListener,
+} from "./utils/renderizeSummary.js";

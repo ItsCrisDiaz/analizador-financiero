@@ -1,4 +1,4 @@
-import { formInformation } from "./getValue.js";
+import { formInformation } from "./renderizeSummary.js";
 
 //############################################
 //FUNCTIONS
