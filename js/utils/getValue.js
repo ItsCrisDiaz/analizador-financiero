@@ -31,10 +31,19 @@ const getValue = function () {
     (acc, input) => ({ ...acc, [input.id]: parseInt(input.value) }),
     {}
   );
+  console.table(formInformation);
 };
 
 //############################################
 //EVENT LISTENERS
 //############################################
 
-export { formInformation, getValue };
+const getArrayEventListener = document.addEventListener("change", function (e) {
+  if (e.target === DATABASE_INPUTS) {
+    getValue();
+    console.log(DATABASE_INPUTS);
+    console.log("Hola");
+  }
+});
+
+export { formInformation, getValue, getArrayEventListener };
