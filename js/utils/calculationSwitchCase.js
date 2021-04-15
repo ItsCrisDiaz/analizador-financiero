@@ -1,6 +1,17 @@
 import { formInformation } from "./getValue.js";
 
+//############################################
+//FUNCTIONS
+//############################################
+
+// **
+// * calculation
+// * Calculates the indicators of the requested indicator
+// * @param {key} indicator   name of the key in object INDICATORS_MESSAGES
+// */
+
 const calculation = function (indicator) {
+  //Switch cases depending of the necesary key.
   switch (indicator) {
     case "razonCorriente":
       if (formInformation.totalCurrentLiabilities === 0) {
