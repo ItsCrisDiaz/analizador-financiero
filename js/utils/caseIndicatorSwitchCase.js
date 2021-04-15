@@ -1,3 +1,14 @@
+//############################################
+//FUNCTIONS
+//############################################
+
+// **
+// * caseIndicator
+// * Selects a case depending of the result in calculation function
+// * @param {key} indicator   name of the key in object INDICATORS_MESSAGES
+// * @param {number} result   indicator calculated in function calculation
+// */
+
 const caseIndicator = (indicator, result) => {
   switch (indicator) {
     case "razonCorriente":

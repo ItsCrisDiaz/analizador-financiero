@@ -2,10 +2,20 @@
 //EVENT LISTENERS
 //########################################
 
-import documentEventListener from "./eventListeners/documentClick.js";
+import modalEventListener from "./utils/createModalContent.js";
+
+import { buttonEventListeners } from "./utils/sectionNavigationButtons.js";
+
+import reportEventListener from "./utils/renderizeReport.js";
 
 import {
-  assetsEventListener,
-  liabilitiesAndEquityEventListener,
-  profitAndLossEventListener,
-} from "./eventListeners/sectionsChange.js";
+  assetsEventCalcListener,
+  liabilitiesAndEquityCalcEventListener,
+  profitAndLossCalcEventListener,
+} from "./utils/groupCalculation.js";
+
+import {
+  assetsSummaryEventListener,
+  liabilitiesAndEquitySummaryEventListener,
+  profitAndLossSummaryEventListener,
+} from "./utils/renderizeSummary.js";
