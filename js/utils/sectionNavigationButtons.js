@@ -1,6 +1,3 @@
-import showIndicator from "../functions/showIndicator.js";
-import INDICATORS_MESSAGES from "../objects/messageList.js";
-
 //############################################
 //NODES
 //############################################

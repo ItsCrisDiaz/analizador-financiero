@@ -1,5 +1,6 @@
 import INDICATORS_MESSAGES from "../objects/messageList.js";
-import calculation from "../utils/calculationSwitchCase.js";
+import calculation from "./calculationSwitchCase.js";
+import { SUBMIT_FORM_BUTTON } from "./sectionNavigationButtons.js";
 import caseIndicator from "../utils/caseIndicatorSwitchCase.js";
 
 const addClassAndMessage = (indicator, result) => {
@@ -47,4 +48,30 @@ const addClassAndMessage = (indicator, result) => {
   }
 };
 
-export default addClassAndMessage;
+const showIndicator = function (indicator) {
+  let indicatorCalculation = calculation(indicator);
+  let indicatorNode = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} .indicator`
+  );
+  if (indicatorCalculation === "N/A") {
+    indicatorNode.innerHTML = `${indicatorCalculation}`;
+  } else if (INDICATORS_MESSAGES[indicator].percentage === true) {
+    indicatorNode.innerHTML = `${indicatorCalculation}%`;
+  } else {
+    indicatorNode.innerHTML = `${indicatorCalculation}`;
+  }
+
+  addClassAndMessage(indicator, indicatorCalculation);
+};
+
+// The eventListener works
+
+const reportEventListener = document.addEventListener("click", function (e) {
+  if (e.target === SUBMIT_FORM_BUTTON) {
+    Object.keys(INDICATORS_MESSAGES).forEach((indicator) =>
+      showIndicator(indicator)
+    );
+  }
+});
+
+export default reportEventListener;

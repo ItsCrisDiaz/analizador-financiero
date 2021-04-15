@@ -6,7 +6,7 @@ import modalEventListener from "./utils/createModalContent.js";
 
 import { buttonEventListeners } from "./utils/sectionNavigationButtons.js";
 
-import reportEventListener from "./functions/showIndicator.js";
+import reportEventListener from "./utils/renderizeReport.js";
 
 import {
   assetsEventListener,
