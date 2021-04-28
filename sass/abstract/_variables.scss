@@ -1,0 +1,20 @@
+/* VARIABLES */
+
+:root {
+  /* Colors */
+  --color: hsl(207, 87%, 50%);
+  --color-accent: hsla(207, 87%, 50%, 0.082);
+  --color-bg: hsl(0, 0%, 100%);
+  --color-bg-secondary: hsl(0, 0%, 91%);
+  --color-secondary: hsl(356, 76%, 26%);
+  --color-secondary-accent: hsla(276, 89%, 48%, 0.043);
+  --color-shadow: hsl(0, 0%, 96%);
+  --color-text: hsl(0, 0%, 0%);
+  --color-text-secondary: hsl(0, 0%, 60%);
+  --correct-indicator: hsl(128, 60%, 42%);
+  --wrong-indicator: hsl(348, 83%, 47%);
+  --warning-indicator: hsl(54, 88%, 47%);
+  /* Fonts */
+  --title-font: "Open Sans Condensed", sans-serif;
+  --text-font: "Open Sans", sans-serif;
+}

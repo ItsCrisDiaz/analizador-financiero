@@ -15,7 +15,7 @@ const REPORT_SECTION = document.querySelector("#report");
 
 //Button nodes
 
-const INSTRUCTION_BUTTON = document.querySelector("#instructions button");
+const INSTRUCTION_BUTTON = document.querySelector("#instructionsButton button");
 const ASSETS_NEXT_BUTTON = document.querySelector("#assets .next");
 const ASSETS_BACK_BUTTON = document.querySelector("#assets .back");
 const LIABILITIES_AND_EQUITY_NEXT_BUTTON = document.querySelector(
@@ -57,7 +57,7 @@ const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
   hiddenSectionFalse.hidden = false;
 
   window.location = `#${hiddenSectionFalse.id}`;
-  let pageUrl = `${hiddenSectionFalse.id}.html`;
+  let pageUrl = `${hiddenSectionFalse.id}`;
 
   //Changes the site's URL and title
   history.pushState({ page_id: 1 }, "", pageUrl);

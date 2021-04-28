@@ -1,0 +1,29 @@
+/* COMPOSITION */
+
+/*
+*Main layout compositions classes
+*/
+
+.main-grid {
+  display: grid;
+  grid-template-rows: 1.5rem 1fr 100px;
+}
+
+.section-on-screen {
+  grid-row: 2 / 3;
+  overflow-y: auto;
+}
+
+.buttons-on-screen {
+  grid-row: 3 / 4;
+  place-content: center;
+}
+
+/*
+*Flow composition class
+*/
+
+.flow > * + * {
+  margin-top: var(--vertical-flow-space, 1em);
+  margin-left: var(--horizontal-flow-space, 0);
+}

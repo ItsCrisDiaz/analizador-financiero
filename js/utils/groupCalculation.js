@@ -88,7 +88,11 @@ const groupSum = function (idSelector, classSelector) {
   //Creating a sum with each input of the array in groupValue
   let groupSum = 0;
   groupValue.forEach((input) => {
-    groupSum += parseFloat(input.value);
+    if (input.value === "") {
+      groupSum += 0;
+    } else {
+      groupSum += parseFloat(input.value);
+    }
   });
 
   //Selects a node of idSelector that has the attribut [disabled] and its class corresponde with classSelector

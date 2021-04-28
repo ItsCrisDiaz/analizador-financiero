@@ -1,0 +1,13 @@
+/*
+*Wrong-indicator utility
+*/
+
+.wrong {
+  &.border {
+    border: 10px double var(--wrong-indicator);
+  }
+
+  &.text {
+    color: var(--wrong-indicator);
+  }
+}

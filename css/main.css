@@ -1,0 +1,127 @@
+/* VARIABLES */
+:root {
+  /* Colors */
+  --color: hsl(207, 87%, 50%);
+  --color-accent: hsla(207, 87%, 50%, 0.082);
+  --color-bg: hsl(0, 0%, 100%);
+  --color-bg-secondary: hsl(0, 0%, 91%);
+  --color-secondary: hsl(356, 76%, 26%);
+  --color-secondary-accent: hsla(276, 89%, 48%, 0.043);
+  --color-shadow: hsl(0, 0%, 96%);
+  --color-text: hsl(0, 0%, 0%);
+  --color-text-secondary: hsl(0, 0%, 60%);
+  --correct-indicator: hsl(128, 60%, 42%);
+  --wrong-indicator: hsl(348, 83%, 47%);
+  --warning-indicator: hsl(54, 88%, 47%);
+  /* Fonts */
+  --title-font: "Open Sans Condensed", sans-serif;
+  --text-font: "Open Sans", sans-serif;
+}
+
+/* GLOBAL STYLES */
+html {
+  font-size: 62.5%;
+  font-family: var(--text-font);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+}
+
+/* COMPOSITION */
+/*
+*Main layout compositions classes
+*/
+.main-grid {
+  display: grid;
+  grid-template-rows: 1.5rem 1fr 100px;
+}
+
+.section-on-screen {
+  grid-row: 2/3;
+  overflow-y: auto;
+}
+
+.buttons-on-screen {
+  grid-row: 3/4;
+  place-content: center;
+}
+
+/*
+*Flow composition class
+*/
+.flow > * + * {
+  margin-top: var(--vertical-flow-space, 1em);
+  margin-left: var(--horizontal-flow-space, 0);
+}
+
+/*
+*Correct-indicator utility
+*/
+.correct.border {
+  border: 10px double var(--correct-indicator);
+}
+.correct.text {
+  color: var(--correct-indicator);
+}
+
+/*
+*Wrong-indicator utility
+*/
+.wrong.border {
+  border: 10px double var(--wrong-indicator);
+}
+.wrong.text {
+  color: var(--wrong-indicator);
+}
+
+/*
+*Warning-indicator utility
+*/
+.warning.border {
+  border: 10px double var(--warning-indicator);
+}
+.warning.text {
+  color: var(--warning-indicator);
+}
+
+/* UTILITIES */
+/*
+*Progress-bar block
+*/
+.progress-bar-container {
+  place-items: center;
+  padding: 5px 20px;
+}
+
+.progress-bar {
+  --vertical-flow-space: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 40%;
+}
+.progress-bar div {
+  display: inline;
+  background-color: #e5e5e5;
+}
+.progress-bar div:nth-child(1) {
+  background-color: #c51b26;
+}
+
+/*# sourceMappingURL=main.css.map */

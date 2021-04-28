@@ -1,0 +1,13 @@
+/*
+*Correct-indicator utility
+*/
+
+.correct {
+  &.border {
+    border: 10px double var(--correct-indicator);
+  }
+
+  &.text {
+    color: var(--correct-indicator);
+  }
+}

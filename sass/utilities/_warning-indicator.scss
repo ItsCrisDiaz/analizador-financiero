@@ -1,0 +1,13 @@
+/*
+*Warning-indicator utility
+*/
+
+.warning {
+  &.border {
+    border: 10px double var(--warning-indicator);
+  }
+
+  &.text {
+    color: var(--warning-indicator);
+  }
+}
