@@ -5,8 +5,20 @@
 */
 
 .progress-bar-container {
+  position: relative;
+  display: flex;
   place-items: center;
   padding: 5px 20px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-border-grid);
+  }
 }
 
 .progress-bar {
@@ -22,6 +34,7 @@
 
   & div {
     display: inline;
+    height: 100%;
     background-color: #e5e5e5;
 
     &:nth-child(1) {

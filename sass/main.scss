@@ -12,10 +12,14 @@
 
 // UTILITIES
 
+@use "./utilities/wrapper";
 @use "./utilities/correct-indicator";
 @use "./utilities/wrong-indicator";
 @use "./utilities/warning-indicator";
+@use "./utilities/button";
 
 // BLOCKS
 
 @use "./components/progress-bar";
+@use "./components/page-section";
+@use "./components/button-container";

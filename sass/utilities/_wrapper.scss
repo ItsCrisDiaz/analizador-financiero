@@ -9,7 +9,7 @@
   align-items: inherit;
   justify-content: inherit;
   width: 100%;
-  max-width: 155rem;
+  max-width: var(--container-max-width);
   margin-left: auto;
   margin-right: auto;
 }

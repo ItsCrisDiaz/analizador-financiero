@@ -1,0 +1,8 @@
+.page-section {
+  --vertical-flow-space: 1.2rem;
+  padding: 2rem;
+
+  & ul {
+    --vertical-flow-space: 1rem;
+  }
+}
