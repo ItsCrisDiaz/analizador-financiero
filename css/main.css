@@ -366,4 +366,10 @@ fieldset {
   cursor: pointer;
 }
 
+.button[data-size=small] {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*# sourceMappingURL=main.css.map */
