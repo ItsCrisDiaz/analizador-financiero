@@ -257,6 +257,7 @@ fieldset {
   padding: 0;
   border-radius: 10px;
   width: 100%;
+  max-width: 80rem;
   height: 40%;
 }
 .progress-bar div {
