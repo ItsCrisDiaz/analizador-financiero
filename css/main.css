@@ -76,6 +76,12 @@ button {
   display: none;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   :focus {
     transition: outline-offset 0.25s ease;
@@ -236,7 +242,7 @@ button {
   position: fixed;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  place-items: center;
   left: 0;
   top: 0;
   padding: 10%;
@@ -250,9 +256,9 @@ button {
   display: none;
 }
 .modal-content {
+  --vertical-flow-space: 1rem;
   justify-content: flex-start;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
   background-color: white;
   width: 100%;
   max-height: 48rem;
@@ -264,14 +270,14 @@ button {
   grid-template-columns: 1fr auto;
   align-items: center;
   width: 100%;
-  gap: 10px;
+  gap: 1rem;
   padding: 1.5rem;
   background-color: var(--color-secondary);
   color: white;
   border-radius: 1rem 1rem 0 0;
 }
 .modal-header h3 {
-  font-size: 1rem;
+  font-size: 2rem;
   margin-right: 0.5rem;
 }
 .modal-header span {
