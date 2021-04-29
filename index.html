@@ -63,10 +63,10 @@
         <button class="button">Comenzar</button>
       </div> -->
     </main>
-    <div class="button-container | buttons-on-screen | flow" id="instructionsButton">
-      <button class="button">Comenzar</button>
+    <div class="button-container | buttons-on-screen wrapper | flow" id="instructionsButton">
+      <button class="button" type="button">Comenzar</button>
     </div>
-    <article id="assets" hidden>
+    <section class="page-section | wrapper | flow" id="assets" hidden>
       <h2>Parte 1: Activos</h2>
       <p>
         Los activos son bienes o derechos que posee la empresa y se pueden
@@ -182,12 +182,12 @@
           />
         </fieldset>
       </form>
-    </article>
-    <div class="button-container | flow" id="assetsButton" hidden>
-      <button class="back">Anterior</button>
-      <button class="next">Siguiente</button>
+    </section>
+    <div class="button-container | wrapper | flow" id="assetsButton" hidden>
+      <button class="button | back" type="button">Anterior</button>
+      <button class="button | next" type="button">Siguiente</button>
     </div>
-    <article id="liabilitiesAndEquity" hidden>
+    <section class="page-section | wrapper | flow" id="liabilitiesAndEquity" hidden>
       <h2>Parte 2: Pasivos y Patrimonio</h2>
       <h3>Pasivos</h3>
       <p>El pasivo consiste en las deudas que la empresa posee.</p>
@@ -324,12 +324,12 @@
           />
         </fieldset>
       </form>
-      <div>
-        <button class="back">Anterior</button>
-        <button class="next">Siguiente</button>
-      </div>
-    </article>
-    <article id="profitAndLoss" hidden>
+    </section>
+    <div class="button-container | wrapper | flow" id="liabilitiesAndEquityButton" hidden>
+      <button class="button | back" type="button">Anterior</button>
+      <button class="button | next" type="button">Siguiente</button>
+    </div>
+    <section class="page-section | wrapper | flow" id="profitAndLoss" hidden>
       <form action="">
         <h2>Parte 3: Ingresos, costos y gastos</h2>
         <fieldset>
@@ -448,16 +448,16 @@
         </fieldset>
 
       </form>
-      <div>
-        <button class="back">Anterior</button>
-        <button class="next">Siguiente</button>
-      </div>
-    </article>
-    <article id="summary" hidden>
+    </section>
+    <div class="button-container | wrapper | flow" id="profitAndLossButton" hidden>
+      <button class="button | back" type="button">Anterior</button>
+      <button class="button | next" type="button">Siguiente</button>
+    </div>
+    <section class="page-section | wrapper | flow" id="summary" hidden>
       <h2>Resumen</h2>
-      <article>
+      <article class="flow">
         <h3>Activo</h3>
-        <article>
+        <article class="flow">
           <h3>Activo corriente</h3>
           <p><strong>Efectivo:</strong> <span id="cashSummary"></span></p>
           <p><strong>Cuentas por cobrar:</strong> <span id="accountsReceivableSummary"></span></p>
@@ -465,7 +465,7 @@
           <p><strong>Otros activos corrientes:</strong> <span id="otherCurrentAssetsSummary"></span></p>
           <p><strong>Total activo corriente:</strong> <span id="currentAssetsTotalSummary"></span></p>
         </article>
-        <article>
+        <article class="flow">
           <h3>Activo no corriente</h3>
           <p><strong>Propiedad, planta y equipo:</strong> <span id="fixedAssetsSummary"></span></p>
           <p><strong>Inversiones a largo plazo:</strong> <span id="longTermInvestmentSummary"></span></p>
@@ -474,9 +474,9 @@
         </article>
         <p><strong>Total activo:</strong> <span></span></p>
       </article>
-      <article>
+      <article class="flow">
         <h3>Pasivo</h3>
-        <article>
+        <article class="flow">
           <h3>Pasivo corriente</h3>
           <p><strong>Cuentas por pagar a corto plazo:</strong> <span id="accountsPayableShortTermSummary"></span></p>
           <p><strong>Impuestos:</strong> <span id="shortTermTaxesSummary"></span></p>
@@ -484,7 +484,7 @@
           <p><strong>Otros pasivos corrientes:</strong> <span id="otherCurrentLiabilitiesSummary"></span></p>
           <p><strong>Total pasivo corriente:</strong> <span id="totalCurrentLiabilitiesSummary"></span></p>
         </article>
-        <article>
+        <article class="flow">
           <h3>Pasivo no corriente</h3>
           <p><strong>Obligaciones financieras:</strong> <span id="financialLiabilitiesSummary"></span></p>
           <p><strong>Cuentas por pagar a largo plazo:</strong> <span id="accountsPayableLongTermSummary"></span></p>
@@ -492,11 +492,11 @@
           <p><strong>Total pasivo corriente:</strong> <span id="totalNonCurrentLiabilitiesSummary"></span></p>
         </article>
         <h3>Patrimonio</h3>
-        <article>
+        <article class="flow">
           <p><strong>Total patrimonio:</strong> <span id="equitySummary"></span></p>
         </article>
       </article>
-      <article>
+      <article class="flow">
         <h3>Ingresos, costos y gastos</h3>
         <p><strong>Ingresos operacionales:</strong> <span id="operatingRevenueSummary"></span></p>
         <p>
@@ -517,20 +517,20 @@
         Si alguna información es incorrecta, usa los siguientes botones para
         regresar a la sección que necesitas corregir.
       </p>
-      <div class="back-buttons">
-        <button>Parte 1: Activos</button>
-        <button>Parte 2: Pasivos y Patrimonio</button>
-        <button>Parte 3: Ingresos, costos y gastos</button>
+      <div class="back-buttons | flow">
+        <button class="button" type="button">Parte 1: Activos</button>
+        <button class="button" type="button">Parte 2: Pasivos y Patrimonio</button>
+        <button class="button" type="button">Parte 3: Ingresos, costos y gastos</button>
       </div>
       <p>
         Si consideras que la información es correcta, haz click en el siguiente
         botón para generar tu reporte financiero.
       </p>
       <div>
-        <button id="generateContent">Generar reporte</button>
+        <button class="button" type="button" id="generateContent">Generar reporte</button>
       </div>
-    </article>
-    <article id="report" hidden>
+    </section>
+    <section id="report" hidden>
       <h2>Reporte</h2>
       <section id="liquidity">
         <h2>Indicadores de eficiencia</h2>
@@ -597,7 +597,7 @@
           <p class="indicator-explanation"></p>
         </section>
       </section>
-    </article>
+    </section>
     <section class="modal" hidden>
       <article>
         <div class="modal-header">

@@ -16,19 +16,19 @@ const REPORT_SECTION = document.querySelector("#report");
 //Button nodes
 
 const INSTRUCTION_BUTTON = document.querySelector("#instructionsButton button");
-const ASSETS_NEXT_BUTTON = document.querySelector("#assets .next");
-const ASSETS_BACK_BUTTON = document.querySelector("#assets .back");
+const ASSETS_NEXT_BUTTON = document.querySelector("#assetsButton .next");
+const ASSETS_BACK_BUTTON = document.querySelector("#assetsButton .back");
 const LIABILITIES_AND_EQUITY_NEXT_BUTTON = document.querySelector(
-  "#liabilitiesAndEquity .next"
+  "#liabilitiesAndEquityButton .next"
 );
 const LIABILITIES_AND_EQUITY_BACK_BUTTON = document.querySelector(
-  "#liabilitiesAndEquity .back"
+  "#liabilitiesAndEquityButton .back"
 );
 const PROFIT_AND_LOSS_NEXT_BUTTON = document.querySelector(
-  "#profitAndLoss .next"
+  "#profitAndLossButton .next"
 );
 const PROFIT_AND_LOSS_BACK_BUTTON = document.querySelector(
-  "#profitAndLoss .back"
+  "#profitAndLossButton .back"
 );
 const SUMMARY_ASSETS_BUTTON = document.querySelector(
   "#summary .back-buttons button:nth-child(1)"

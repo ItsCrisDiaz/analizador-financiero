@@ -3,7 +3,8 @@
   --horizontal-flow-space: 2rem;
   position: relative;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
 
   &::before {
     content: "";
