@@ -21,7 +21,7 @@
   /* Font sizes */
   --h1-fs: 3.2rem;
   --h2-fs: 2.4rem;
-  --h3-fs: 1.6rem;
+  --h3-fs: 1.8rem;
   --body-fs: 1.6rem;
   /* Others */
   --container-max-width: 145rem;
@@ -104,6 +104,10 @@ textarea {
   border: 1px solid var(--color-bg-secondary);
   border-radius: 0.5rem;
   padding: 0.6rem 1.2rem;
+}
+
+fieldset {
+  --vertical-flow-space: 1.2rem;
 }
 
 [hidden] {
@@ -216,6 +220,16 @@ textarea {
   height: 2px;
   background-color: var(--color-border-grid);
 }
+.progress-bar-container::before {
+  content: "";
+  position: absolute;
+  bottom: -2.5rem;
+  left: 0;
+  width: 100%;
+  height: 2.5rem;
+  background: linear-gradient(white, rgba(255, 255, 255, 0.001));
+  z-index: 2;
+}
 
 .progress-bar {
   --vertical-flow-space: 0;
@@ -256,8 +270,9 @@ textarea {
 
 .page-section {
   --vertical-flow-space: 1.2rem;
+  position: relative;
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 .page-section .button {
   display: block;
@@ -269,6 +284,15 @@ textarea {
 }
 .page-section[hidden] {
   display: none;
+}
+.page-section::after {
+  content: "";
+  position: sticky;
+  bottom: -2.5rem;
+  left: 0;
+  width: 100%;
+  height: 2.5rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.001), white);
 }
 
 .button-container {
