@@ -34,7 +34,8 @@ h3 {
 }
 
 p,
-ul {
+ul,
+label {
   font-size: var(--body-fs);
   max-width: 70ch;
 }

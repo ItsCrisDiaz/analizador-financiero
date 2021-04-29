@@ -18,10 +18,10 @@
   --title-font: "Open Sans Condensed", sans-serif;
   --text-font: "Open Sans", sans-serif;
   /* Font sizes */
-  --h1-fs: 2.6rem;
-  --h2-fs: 2rem;
-  --h3-fs: 1.8rem;
-  --body-fs: 1.4rem;
+  --h1-fs: 3.2rem;
+  --h2-fs: 2.4rem;
+  --h3-fs: 1.6rem;
+  --body-fs: 1.6rem;
   /* Others */
   --container-max-width: 145rem;
 }
@@ -61,7 +61,8 @@ h3 {
 }
 
 p,
-ul {
+ul,
+label {
   font-size: var(--body-fs);
   max-width: 70ch;
 }
@@ -250,13 +251,13 @@ button {
 }
 .modal-content {
   justify-content: flex-start;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   background-color: white;
   width: 100%;
-  max-height: 30rem;
+  max-height: 48rem;
   overflow-y: auto;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 1rem 1rem;
 }
 .modal-header {
   display: grid;
@@ -264,17 +265,17 @@ button {
   align-items: center;
   width: 100%;
   gap: 10px;
-  padding: 15px;
+  padding: 1.5rem;
   background-color: var(--color-secondary);
   color: white;
-  border-radius: 10px 10px 0 0;
+  border-radius: 1rem 1rem 0 0;
 }
 .modal-header h3 {
   font-size: 1rem;
-  margin-right: 5px;
+  margin-right: 0.5rem;
 }
 .modal-header span {
-  font-size: 2rem;
+  font-size: 3.2rem;
   cursor: pointer;
 }
 
