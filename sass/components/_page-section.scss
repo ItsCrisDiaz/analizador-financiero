@@ -17,14 +17,4 @@
   &[hidden] {
     display: none;
   }
-
-  &::after {
-    content: "";
-    position: sticky;
-    bottom: -2.5rem;
-    left: 0;
-    width: 100%;
-    height: 2.5rem;
-    background: linear-gradient(rgba(255, 255, 255, 0.001), white);
-  }
 }
