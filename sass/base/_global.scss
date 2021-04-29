@@ -79,7 +79,7 @@ textarea {
 }
 
 fieldset {
-  --vertical-flow-space: 1.2rem;
+  --vertical-flow-space: 1.6rem;
 }
 [hidden] {
   display: none;
@@ -88,6 +88,7 @@ fieldset {
 @media (prefers-reduced-motion: no-preference) {
   :focus {
     transition: outline-offset 0.25s ease;
-    outline-offset: 5px;
+    outline: solid 2px var(--offset-color, var(--button-color-2));
+    outline-offset: 4px;
   }
 }

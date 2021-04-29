@@ -1,11 +1,12 @@
 .button[data-size="small"] {
+  --offset-color: var(--color-secondary);
   position: relative;
   top: -0.6rem;
   display: inline-block;
   margin: 0.4rem;
   padding: 0.4rem 0.8rem;
   background-color: var(--color-secondary);
+  font-family: var(--title-font);
   font-size: 0.9rem;
-  font-weight: bold;
   border-radius: 3px;
 }
