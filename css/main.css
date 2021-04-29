@@ -2,6 +2,7 @@
 :root {
   /* Colors */
   --button-color: hsl(356, 56%, 46%);
+  --button-color-2: hsl(11, 51%, 42%);
   --color-accent: hsla(207, 87%, 50%, 0.082);
   --color-bg: hsl(0, 0%, 100%);
   --color-bg-secondary: hsl(0, 0%, 91%);
@@ -68,6 +69,10 @@ ul {
 button {
   font-size: var(--body-fs);
   color: white;
+}
+
+[hidden] {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -152,7 +157,7 @@ button {
   border-radius: 5px;
   font-weight: bold;
   border: none;
-  background-color: var(--button-color);
+  background-color: var(--button-color-2);
 }
 
 /* UTILITIES */
@@ -189,7 +194,7 @@ button {
 .progress-bar div {
   display: inline;
   height: 100%;
-  background-color: #e5e5e5;
+  background-color: #e6e6e6;
 }
 .progress-bar div:nth-child(1) {
   background-color: #c51b26;
@@ -202,8 +207,13 @@ button {
 .page-section ul {
   --vertical-flow-space: 1rem;
 }
+.page-section[hidden] {
+  display: none;
+}
 
 .button-container {
+  --vertical-flow-space: 0;
+  --horizontal-flow-space: 2rem;
   position: relative;
   display: flex;
   place-items: center;
@@ -216,6 +226,56 @@ button {
   width: 80%;
   height: 2px;
   background-color: var(--color-border-grid);
+}
+.button-container[hidden] {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  left: 0;
+  top: 0;
+  padding: 10%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  overflow: -moz-hidden-unscrollable;
+  z-index: 2;
+}
+.modal[hidden] {
+  display: none;
+}
+.modal-content {
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  width: 100%;
+  max-height: 30rem;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+}
+.modal-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 15px;
+  background-color: var(--color-secondary);
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+.modal-header h3 {
+  font-size: 1rem;
+  margin-right: 5px;
+}
+.modal-header span {
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

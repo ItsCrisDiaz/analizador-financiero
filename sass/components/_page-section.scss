@@ -5,4 +5,8 @@
   & ul {
     --vertical-flow-space: 1rem;
   }
+
+  &[hidden] {
+    display: none;
+  }
 }

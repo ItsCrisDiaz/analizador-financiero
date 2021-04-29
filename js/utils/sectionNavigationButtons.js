@@ -53,8 +53,23 @@ const SUBMIT_FORM_BUTTON = document.querySelector("#generateContent");
 // */
 
 const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
+  let buttonContainerSectionTrue = document.querySelector(
+    `#${hiddenSectionTrue.id}Button`
+  );
+  let buttonContainerSectionFalse = document.querySelector(
+    `#${hiddenSectionFalse.id}Button`
+  );
+
   hiddenSectionTrue.hidden = true;
   hiddenSectionFalse.hidden = false;
+
+  hiddenSectionTrue.classList.remove("section-on-screen");
+  hiddenSectionFalse.classList.add("section-on-screen");
+
+  buttonContainerSectionTrue.classList.remove("buttons-on-screen");
+  buttonContainerSectionTrue.hidden = true;
+  buttonContainerSectionFalse.classList.add("buttons-on-screen");
+  buttonContainerSectionFalse.hidden = false;
 
   window.location = `#${hiddenSectionFalse.id}`;
   let pageUrl = `${hiddenSectionFalse.id}`;

@@ -1,4 +1,6 @@
 .button-container {
+  --vertical-flow-space: 0;
+  --horizontal-flow-space: 2rem;
   position: relative;
   display: flex;
   place-items: center;
@@ -11,5 +13,9 @@
     width: 80%;
     height: 2px;
     background-color: var(--color-border-grid);
+  }
+
+  &[hidden] {
+    display: none;
   }
 }

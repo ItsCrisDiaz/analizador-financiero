@@ -44,6 +44,10 @@ button {
   color: white;
 }
 
+[hidden] {
+  display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   :focus {
     transition: outline-offset 0.25s ease;
