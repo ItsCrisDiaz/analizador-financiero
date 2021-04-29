@@ -71,7 +71,7 @@ const closeModal = function () {
 
 const modalEventListener = document.addEventListener("click", function (e) {
   //Event listener for sup elements
-  if (e.target.nodeName === "SUP") {
+  if (e.target && e.target.matches('.button[data-size="small"]')) {
     createModalContent(e);
     return createModalContent;
   } //Event listener for MODAL_CLOSE element
@@ -80,5 +80,7 @@ const modalEventListener = document.addEventListener("click", function (e) {
   } else {
   }
 });
+
+// if (e.target.nodeName === "SUP")
 
 export default modalEventListener;
