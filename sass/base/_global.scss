@@ -35,7 +35,10 @@ h3 {
 
 p,
 ul,
-label {
+label,
+input,
+select,
+textarea {
   font-size: var(--body-fs);
   max-width: 70ch;
 }
@@ -45,14 +48,38 @@ button {
   color: white;
 }
 
-[hidden] {
-  display: none;
+button:disabled,
+input:disabled {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input,
+label,
+select,
+textarea {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--color-bg-secondary);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+}
+
+[hidden] {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
