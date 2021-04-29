@@ -106,6 +106,24 @@ const groupSum = function (idSelector, classSelector) {
 };
 
 // **
+// * checkErrorCalc
+// * Returns either the placeholder or the value of the specified node
+// * @param {node} Node   Node that needs to be check the value
+// */
+
+const checkErrorCalc = function (node) {
+  let value = 0;
+  if (node.value === "") {
+    value = parseFloat(node.placeholder);
+  } else {
+    value = parseFloat(node.value);
+  }
+
+  console.log(value);
+  return value;
+};
+
+// **
 // * profitAndLossCalculation
 // * Calculates the total of the profitAndLoss ID section
 // * @param {} idSelector   const with the node of the neccesary section
@@ -113,16 +131,16 @@ const groupSum = function (idSelector, classSelector) {
 // */
 
 const profitAndLossCalculation = function () {
-  let calculation = parseFloat(OPERATING_REVENUE_INPUT.value);
-  calculation -= parseFloat(COST_OF_GOOD_SOLD_INPUT.value);
+  let calculation = checkErrorCalc(OPERATING_REVENUE_INPUT); // parseFloat(OPERATING_REVENUE_INPUT.value);
+  calculation -= checkErrorCalc(COST_OF_GOOD_SOLD_INPUT);
   GROSS_PROFIT_INPUT.value = calculation;
 
-  calculation -= parseFloat(ADMINISTRATIVE_EXPENSES_INPUT.value);
-  calculation -= parseFloat(SALES_EXPENSES_INPUT.value);
+  calculation -= checkErrorCalc(ADMINISTRATIVE_EXPENSES_INPUT);
+  calculation -= checkErrorCalc(SALES_EXPENSES_INPUT);
   OPERATING_INCOME_INPUT.value = calculation;
 
-  calculation += parseFloat(NON_OPERATING_INCOME_INPUT.value);
-  calculation -= parseFloat(NON_OPERATING_EXPENSES_INPUT.value);
+  calculation += checkErrorCalc(NON_OPERATING_INCOME_INPUT);
+  calculation -= checkErrorCalc(NON_OPERATING_EXPENSES_INPUT);
   NET_INCOME_INPUT.value = calculation;
 };
 

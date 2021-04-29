@@ -27,10 +27,22 @@ let formInformation;
 // * @return {Array} Array with ids as key and inputs as values.
 // */
 const getValue = function () {
+  let arrayValue = function (input) {
+    let value = 0;
+    if (input.value === "") {
+      value = parseInt(input.placeholder);
+    } else {
+      value = parseInt(input.value);
+    }
+
+    return value;
+  };
+
   formInformation = Array.from(DATABASE_INPUTS).reduce(
-    (acc, input) => ({ ...acc, [input.id]: parseInt(input.value) }),
-    {}
+    (acc, input) => ({ ...acc, [input.id]: parseInt(input.value) })
+    // (acc, input) => ({ ...acc, [input.id]: arrayValue(input) })
   );
+  console.table(formInformation);
 };
 
 // **
