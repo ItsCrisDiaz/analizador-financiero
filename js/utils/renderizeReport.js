@@ -104,12 +104,14 @@ const showIndicator = function (indicator) {
 //EVENT LISTENER
 //############################################
 
-const reportEventListener = document.addEventListener("click", function (e) {
-  if (e.target === SUBMIT_FORM_BUTTON) {
-    Object.keys(INDICATORS_MESSAGES).forEach((indicator) =>
-      showIndicator(indicator)
-    );
-  }
-});
+const reportEventListener = function () {
+  document.addEventListener("click", function (e) {
+    if (e.target === SUBMIT_FORM_BUTTON) {
+      Object.keys(INDICATORS_MESSAGES).forEach((indicator) =>
+        showIndicator(indicator)
+      );
+    }
+  });
+};
 
 export default reportEventListener;

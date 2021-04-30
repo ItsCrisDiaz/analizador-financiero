@@ -69,17 +69,19 @@ const closeModal = function () {
 //EVENT LISTENERS
 //############################################
 
-const modalEventListener = document.addEventListener("click", function (e) {
-  //Event listener for sup elements
-  if (e.target && e.target.matches('.button[data-size="small"]')) {
-    createModalContent(e);
-    return createModalContent;
-  } //Event listener for MODAL_CLOSE element
-  else if (e.target === MODAL_CLOSE) {
-    closeModal();
-  } else {
-  }
-});
+const modalEventListener = function () {
+  document.addEventListener("click", function (e) {
+    //Event listener for sup elements
+    if (e.target && e.target.matches('.button[data-size="small"]')) {
+      createModalContent(e);
+      return createModalContent;
+    } //Event listener for MODAL_CLOSE element
+    else if (e.target === MODAL_CLOSE) {
+      closeModal();
+    } else {
+    }
+  });
+};
 
 // if (e.target.nodeName === "SUP")
 

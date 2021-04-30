@@ -4,6 +4,8 @@ import {
   PROFIT_AND_LOSS_SECTION,
 } from "../utils/sectionNavigationButtons.js";
 
+import { groupSum, profitAndLossCalculation } from "./groupCalculation.js";
+
 //############################################
 //NODES
 //############################################
@@ -34,7 +36,6 @@ const getValue = function () {
     } else {
       value = parseInt(node.value);
     }
-
     return value;
   };
 
@@ -79,12 +80,12 @@ const createSummary = function () {
 //EVENT LISTENERS
 //############################################
 
-const assetsSummaryEventListener = ASSETS_SECTION.addEventListener(
-  "change",
-  function (e) {
+const assetsSummaryEventListener = function () {
+  ASSETS_SECTION.addEventListener("change", function (e) {
     //Determine if the inputs are in the current assets section
     if (e.target && e.target.matches(".current-assets-value:not([disabled])")) {
       getValue();
+      groupSum(ASSETS_SECTION, "current-assets-value");
       createSummary();
     }
     // Determine if the inputs are in the non current assets section
@@ -93,20 +94,21 @@ const assetsSummaryEventListener = ASSETS_SECTION.addEventListener(
       e.target.matches(".non-current-assets-value:not([disabled])")
     ) {
       getValue();
+      groupSum(ASSETS_SECTION, "non-current-assets-value");
       createSummary();
     }
-  }
-);
+  });
+};
 
-const liabilitiesAndEquitySummaryEventListener = LIABILITIES_AND_EQUITY_SECTION.addEventListener(
-  "change",
-  function (e) {
+const liabilitiesAndEquitySummaryEventListener = function () {
+  LIABILITIES_AND_EQUITY_SECTION.addEventListener("change", function (e) {
     //Determine if the inputs are in the current assets section
     if (
       e.target &&
       e.target.matches(".current-liabilities-value:not([disabled])")
     ) {
       getValue();
+      groupSum(LIABILITIES_AND_EQUITY_SECTION, "current-liabilities-value");
       createSummary();
     }
     // Determine if the inputs are in the non current assets section
@@ -115,20 +117,21 @@ const liabilitiesAndEquitySummaryEventListener = LIABILITIES_AND_EQUITY_SECTION.
       e.target.matches(".non-current-liabilities-value:not([disabled])")
     ) {
       getValue();
+      groupSum(LIABILITIES_AND_EQUITY_SECTION, "non-current-liabilities-value");
       createSummary();
     }
-  }
-);
+  });
+};
 
-const profitAndLossSummaryEventListener = PROFIT_AND_LOSS_SECTION.addEventListener(
-  "change",
-  function (e) {
+const profitAndLossSummaryEventListener = function () {
+  PROFIT_AND_LOSS_SECTION.addEventListener("change", function (e) {
     if (e.target && e.target.matches(".profit-and-loss:not([disabled])")) {
       getValue();
+      profitAndLossCalculation();
       createSummary();
     }
-  }
-);
+  });
+};
 
 export {
   formInformation,

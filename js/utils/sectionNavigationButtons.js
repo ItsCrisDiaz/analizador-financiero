@@ -83,37 +83,39 @@ const changeSectionButton = function (hiddenSectionTrue, hiddenSectionFalse) {
 //EVENT LISTENERS
 //############################################
 
-const buttonEventListeners = document.addEventListener("click", function (e) {
-  if (e.target === INSTRUCTION_BUTTON) {
-    changeSectionButton(INSTRUCTIONS_SECTION, ASSETS_SECTION);
-  } else if (e.target === ASSETS_BACK_BUTTON) {
-    changeSectionButton(ASSETS_SECTION, INSTRUCTIONS_SECTION);
-  } else if (e.target === ASSETS_NEXT_BUTTON) {
-    changeSectionButton(ASSETS_SECTION, LIABILITIES_AND_EQUITY_SECTION);
-  } else if (e.target === LIABILITIES_AND_EQUITY_BACK_BUTTON) {
-    changeSectionButton(LIABILITIES_AND_EQUITY_SECTION, ASSETS_SECTION);
-  } else if (e.target === LIABILITIES_AND_EQUITY_NEXT_BUTTON) {
-    changeSectionButton(
-      LIABILITIES_AND_EQUITY_SECTION,
-      PROFIT_AND_LOSS_SECTION
-    );
-  } else if (e.target === PROFIT_AND_LOSS_BACK_BUTTON) {
-    changeSectionButton(
-      PROFIT_AND_LOSS_SECTION,
-      LIABILITIES_AND_EQUITY_SECTION
-    );
-  } else if (e.target === PROFIT_AND_LOSS_NEXT_BUTTON) {
-    changeSectionButton(PROFIT_AND_LOSS_SECTION, SUMMARY_SECTION);
-  } else if (e.target === SUMMARY_ASSETS_BUTTON) {
-    changeSectionButton(SUMMARY_SECTION, ASSETS_SECTION);
-  } else if (e.target === SUMMARY_LIABILITIES_AND_EQUITY_BUTTON) {
-    changeSectionButton(SUMMARY_SECTION, LIABILITIES_AND_EQUITY_SECTION);
-  } else if (e.target === SUMMARY_PROFIT_AND_LOSS_BUTTON) {
-    changeSectionButton(SUMMARY_SECTION, PROFIT_AND_LOSS_SECTION);
-  } else if (e.target === SUBMIT_FORM_BUTTON) {
-    changeSectionButton(SUMMARY_SECTION, REPORT_SECTION);
-  }
-});
+const buttonEventListeners = function () {
+  document.addEventListener("click", function (e) {
+    if (e.target === INSTRUCTION_BUTTON) {
+      changeSectionButton(INSTRUCTIONS_SECTION, ASSETS_SECTION);
+    } else if (e.target === ASSETS_BACK_BUTTON) {
+      changeSectionButton(ASSETS_SECTION, INSTRUCTIONS_SECTION);
+    } else if (e.target === ASSETS_NEXT_BUTTON) {
+      changeSectionButton(ASSETS_SECTION, LIABILITIES_AND_EQUITY_SECTION);
+    } else if (e.target === LIABILITIES_AND_EQUITY_BACK_BUTTON) {
+      changeSectionButton(LIABILITIES_AND_EQUITY_SECTION, ASSETS_SECTION);
+    } else if (e.target === LIABILITIES_AND_EQUITY_NEXT_BUTTON) {
+      changeSectionButton(
+        LIABILITIES_AND_EQUITY_SECTION,
+        PROFIT_AND_LOSS_SECTION
+      );
+    } else if (e.target === PROFIT_AND_LOSS_BACK_BUTTON) {
+      changeSectionButton(
+        PROFIT_AND_LOSS_SECTION,
+        LIABILITIES_AND_EQUITY_SECTION
+      );
+    } else if (e.target === PROFIT_AND_LOSS_NEXT_BUTTON) {
+      changeSectionButton(PROFIT_AND_LOSS_SECTION, SUMMARY_SECTION);
+    } else if (e.target === SUMMARY_ASSETS_BUTTON) {
+      changeSectionButton(SUMMARY_SECTION, ASSETS_SECTION);
+    } else if (e.target === SUMMARY_LIABILITIES_AND_EQUITY_BUTTON) {
+      changeSectionButton(SUMMARY_SECTION, LIABILITIES_AND_EQUITY_SECTION);
+    } else if (e.target === SUMMARY_PROFIT_AND_LOSS_BUTTON) {
+      changeSectionButton(SUMMARY_SECTION, PROFIT_AND_LOSS_SECTION);
+    } else if (e.target === SUBMIT_FORM_BUTTON) {
+      changeSectionButton(SUMMARY_SECTION, REPORT_SECTION);
+    }
+  });
+};
 
 export {
   ASSETS_SECTION,

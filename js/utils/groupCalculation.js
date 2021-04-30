@@ -109,9 +109,9 @@ const groupSum = function (idSelector, classSelector) {
   let groupSum = 0;
   groupValue.forEach((input) => {
     if (input.value === "") {
-      groupSum += 0;
+      groupSum += parseInt(input.placeholder);
     } else {
-      groupSum += parseFloat(input.value);
+      groupSum += parseInt(input.value);
     }
   });
 
@@ -133,9 +133,9 @@ const groupSum = function (idSelector, classSelector) {
 const checkErrorCalc = function (node) {
   let value = 0;
   if (node.value === "") {
-    value = parseFloat(node.placeholder);
+    value = parseInt(node.placeholder);
   } else {
-    value = parseFloat(node.value);
+    value = parseInt(node.value);
   }
   return value;
 };
@@ -215,4 +215,6 @@ export {
   assetsEventCalcListener,
   liabilitiesAndEquityCalcEventListener,
   profitAndLossCalcEventListener,
+  groupSum,
+  profitAndLossCalculation,
 };
