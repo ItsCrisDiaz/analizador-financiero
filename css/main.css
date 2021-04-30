@@ -15,6 +15,7 @@
   --correct-indicator: hsl(128, 60%, 42%);
   --wrong-indicator: hsl(348, 83%, 47%);
   --warning-indicator: hsl(54, 88%, 47%);
+  --color-border-input: hsl(0, 0%, 40%);
   /* Fonts */
   --title-font: "Open Sans Condensed", sans-serif;
   --text-font: "Open Sans", sans-serif;
@@ -23,6 +24,7 @@
   --h2-fs: 2.4rem;
   --h3-fs: 1.8rem;
   --body-fs: 1.6rem;
+  --smaller-fs: 1.2rem;
   /* Others */
   --container-max-width: 145rem;
 }
@@ -101,7 +103,8 @@ textarea {
 input,
 select,
 textarea {
-  border: 1px solid var(--color-bg-secondary);
+  --offset-color: var(--color-border-input);
+  border: 1px solid var(--color-border-input);
   border-radius: 0.5rem;
   padding: 0.6rem 1.2rem;
   width: 100%;
@@ -136,6 +139,9 @@ fieldset {
 .section-on-screen {
   grid-row: 2/3;
   overflow-y: auto;
+}
+.section-on-screen[data-size=full-size] {
+  grid-row: 1/4;
 }
 
 .buttons-on-screen {
@@ -226,7 +232,6 @@ fieldset {
   justify-content: center;
   align-items: center;
   padding: 0.5rem 2rem;
-  background-color: white;
 }
 .progress-bar-container::after {
   content: "";
@@ -311,7 +316,7 @@ fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  padding: 2rem;
 }
 .button-container::before {
   content: "";
@@ -394,6 +399,10 @@ fieldset {
   font-family: var(--title-font);
   font-size: 0.9rem;
   border-radius: 3px;
+}
+
+.button[data-font-size=smaller] {
+  font-size: var(--smaller-fs);
 }
 
 /*# sourceMappingURL=main.css.map */

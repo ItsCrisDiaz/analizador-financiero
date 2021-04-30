@@ -526,11 +526,12 @@
         Si consideras que la información es correcta, haz click en el siguiente
         botón para generar tu reporte financiero.
       </p>
-      <div>
-        <button class="button" type="button" id="generateContent">Generar reporte</button>
-      </div>
     </section>
-    <section class="page-section | wrapper | flow" id="report" hidden>
+    <div class="button-container | wrapper | flow" id="summaryButton" hidden>
+      <button class="button" type="button" data-font-size="smaller" id="reportChangeOptions">Cambiar información</button>
+      <button class="button" type="button" data-font-size="smaller" id="generateContent">Generar reporte</button>
+    </div>
+    <section class="page-section | wrapper | flow" data-size="full-size" id="report" hidden>
       <h2>Reporte</h2>
       <section class="flow" id="liquidity">
         <h2>Indicadores de eficiencia</h2>

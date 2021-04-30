@@ -12,6 +12,10 @@
 .section-on-screen {
   grid-row: 2 / 3;
   overflow-y: auto;
+
+  &[data-size="full-size"] {
+    grid-row: 1 / 4;
+  }
 }
 
 .buttons-on-screen {

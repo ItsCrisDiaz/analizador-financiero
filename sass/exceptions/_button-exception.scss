@@ -10,3 +10,7 @@
   font-size: 0.9rem;
   border-radius: 3px;
 }
+
+.button[data-font-size="smaller"] {
+  font-size: var(--smaller-fs);
+}
