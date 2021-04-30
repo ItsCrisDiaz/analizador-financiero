@@ -28,6 +28,26 @@ const NET_INCOME_INPUT = document.querySelector("#netIncome");
 //FUNCTIONS
 //############################################
 
+const groupTotal = function (node) {
+  let sectionTotal = 0;
+  let currentTotal = [
+    ...node.querySelectorAll('input[disabled][data-group-total="true"]'),
+  ];
+  let sectionTotalNode = node.querySelector(
+    'input[disabled][data-section-total="true"'
+  );
+
+  currentTotal.forEach((e) => {
+    if (e.value === "") {
+      sectionTotal += parseInt(e.placeholder);
+    } else {
+      sectionTotal += parseInt(e.value);
+    }
+  });
+
+  sectionTotalNode.value = sectionTotal;
+};
+
 // **
 // * equitySum
 // * Calculates the total amount of the equity according to user's inputs
@@ -100,7 +120,6 @@ const groupSum = function (idSelector, classSelector) {
 
   //Changing the value of the node in variable groupTotal with the variable groupSum
   groupTotal.value = groupSum;
-
   //Calling the function equitySum to update the total of equity
   equitySum();
 };

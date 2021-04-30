@@ -121,6 +121,7 @@
             type="number"
             name="current-assets-total"
             data-value="result"
+            data-group-total="true"
             placeholder="0" disabled
           />
         </fieldset>
@@ -153,6 +154,7 @@
             type="number"
             name="long-term-investment"
             data-value="result"
+            data-group-total="true"
             placeholder="0"
           />
           <label for="other-non-current-assets">
@@ -178,8 +180,19 @@
             type="number"
             name="non-current-assets-total"
             data-value="result"
+            data-group-total="true"
             placeholder="0" disabled
           />
+        </fieldset>
+        <fieldset class="flow">
+          <label class="uppercase" for="total-assets"><b>Total activos:</b></label>
+          <input
+          type="number" 
+          name="assets-total" id="assetsTotal"
+          placeholder="0"
+          data-value="result"
+          data-section-total="true"
+          disabled>
         </fieldset>
       </form>
     </section>
@@ -250,6 +263,7 @@
             type="number"
             name="employee-liabilities"
             data-value="result"
+            data-group-total="true"
             placeholder="0" disabled
           />
         </fieldset>
@@ -301,8 +315,19 @@
             type="number"
             name="total-non-current-assets"
             data-value="result"
+            data-group-total="true"
             placeholder="0" disabled
           />
+        </fieldset>
+        <fieldset class="flow">
+          <label for="total-liabilities"><b>Total pasivo:</b></label>
+          <input type="number"
+          name="total-liabilities"
+          id="liabilitiesTotal"
+          placeholder="0"
+          data-value="result"
+          data-section-total="true"
+          disabled />
         </fieldset>
         <h2>Patrimonio</h2>
         <p>
@@ -455,64 +480,166 @@
     </div>
     <section class="page-section | wrapper | flow" id="summary" hidden>
       <h2>Resumen</h2>
-      <article class="flow">
-        <h3>Activo</h3>
-        <article class="flow">
-          <h3>Activo corriente</h3>
-          <p><strong>Efectivo:</strong> <span id="cashSummary"></span></p>
-          <p><strong>Cuentas por cobrar:</strong> <span id="accountsReceivableSummary"></span></p>
-          <p><strong>Inventarios:</strong> <span id="inventorySummary"></span></p>
-          <p><strong>Otros activos corrientes:</strong> <span id="otherCurrentAssetsSummary"></span></p>
-          <p><strong>Total activo corriente:</strong> <span id="currentAssetsTotalSummary"></span></p>
-        </article>
-        <article class="flow">
-          <h3>Activo no corriente</h3>
-          <p><strong>Propiedad, planta y equipo:</strong> <span id="fixedAssetsSummary"></span></p>
-          <p><strong>Inversiones a largo plazo:</strong> <span id="longTermInvestmentSummary"></span></p>
-          <p><strong>Otros activos no corrientes:</strong> <span id="otherNonCurrentAssetsSummary"></span></p>
-          <p><strong>Total activo no corriente:</strong> <span id="nonCurrentAssetsTotalSummary"></span></p>
-        </article>
-        <p><strong>Total activo:</strong> <span></span></p>
-      </article>
-      <article class="flow">
-        <h3>Pasivo</h3>
-        <article class="flow">
-          <h3>Pasivo corriente</h3>
-          <p><strong>Cuentas por pagar a corto plazo:</strong> <span id="accountsPayableShortTermSummary"></span></p>
-          <p><strong>Impuestos:</strong> <span id="shortTermTaxesSummary"></span></p>
-          <p><strong>Obligaciones a empleados:</strong> <span id="employeeLiabilitiesSummary"></span></p>
-          <p><strong>Otros pasivos corrientes:</strong> <span id="otherCurrentLiabilitiesSummary"></span></p>
-          <p><strong>Total pasivo corriente:</strong> <span id="totalCurrentLiabilitiesSummary"></span></p>
-        </article>
-        <article class="flow">
-          <h3>Pasivo no corriente</h3>
-          <p><strong>Obligaciones financieras:</strong> <span id="financialLiabilitiesSummary"></span></p>
-          <p><strong>Cuentas por pagar a largo plazo:</strong> <span id="accountsPayableLongTermSummary"></span></p>
-          <p><strong>Otros pasivos no corrientes:</strong> <span id="otherLongTermLiabilitiesSummary"></span></p>
-          <p><strong>Total pasivo corriente:</strong> <span id="totalNonCurrentLiabilitiesSummary"></span></p>
-        </article>
-        <h3>Patrimonio</h3>
-        <article class="flow">
-          <p><strong>Total patrimonio:</strong> <span id="equitySummary"></span></p>
-        </article>
-      </article>
-      <article class="flow">
-        <h3>Ingresos, costos y gastos</h3>
-        <p><strong>Ingresos operacionales:</strong> <span id="operatingRevenueSummary"></span></p>
-        <p>
-          <strong>Costo de venta y prestación de servicios:</strong>
-          <span id="costOfGoodSoldsSummary"></span>
-        </p>
-        <p><strong>Utilidad bruta:</strong> <span id="grossProfitSummary"></span></p>
-        <p>
-          <strong>Gastos operacionales de administración:</strong> <span id="administrativeExpensesSummary"></span>
-        </p>
-        <p><strong>Gastos operacionales de venta:</strong> <span id="salesExpensesSummary"></span></p>
-        <p><strong>Utilidad operacional:</strong> <span id="operatingIncomeSummary"></span></p>
-        <p><strong>Ingresos no operacionales:</strong> <span id="nonOperatingIncomeSummary"></span></p>
-        <p><strong>Gastos no operacionales:</strong> <span id="nonOperatingExpenseSummary"></span></p>
-        <p><strong>Utilidad neta:</strong> <span id="netIncomeSummary"></span></p>
-      </article>
+      <table>
+        <tr>
+          <th colspan="2">Activo</th>
+        </tr>
+        <tr>
+          <td>Efectivo</td>
+          <td  id="cashSummary"></td>
+        </tr>
+        <tr>
+          <td>Cuentas por cobrar</td>
+          <td id="accountsReceivableSummary"></td>
+        </tr>
+        <tr>
+          <td>Inventarios</td>
+          <td id="inventorySummary"></td>
+        </tr>
+        <tr>
+          <td>Otros activos corrientes</td>
+          <td id="otherCurrentAssetsSummary"></td>
+        </tr>
+        <tr>
+          <td><b>Total activo corriente</b></td>
+          <td class="bold" id="currentAssetsTotalSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>Propiedad, planta y equipo</td>
+          <td id="fixedAssetsSummary"></td>
+        </tr>
+        <tr>
+          <td>Inversiones a largo plazo</td>
+          <td id="longTermInvestmentSummary"></td>
+        </tr>
+        <tr>
+          <td>Otros activos no corrientes</td>
+          <td id="otherNonCurrentAssetsSummary"></td>
+        </tr>
+        <tr>
+          <td><b>Total activo no corriente</b></td>
+          <td class="bold" id="nonCurrentAssetsTotalSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td><b>Total activo:</b></td>
+          <td class="bold" id="assetsTotalSummary"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="2">Pasivo y patrimonio</th>
+        </tr>
+        <tr>
+          <th colspan="2">Pasivo</th>
+        </tr>
+        <tr>
+          <td>Cuentas por pagar a corto plazo</td>
+          <td id="accountsPayableShortTermSummary"></td>
+        </tr>
+        <tr>
+          <td>Impuestos</td>
+          <td id="shortTermTaxesSummary"></td>
+        </tr>
+        <tr>
+          <td>Obligaciones a empleados</td>
+          <td id="employeeLiabilitiesSummary"></td>
+        </tr>
+        <tr>
+          <td>Otros pasivos corrientes</td>
+          <td id="otherCurrentLiabilitiesSummary"></td>
+        </tr>
+        <tr>
+          <td><b>Total pasivo corriente</b></td>
+          <td class="bold" id="totalCurrentLiabilitiesSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>Obligaciones financieras</td>
+          <td id="financialLiabilitiesSummary"></td>
+        </tr>
+        <tr>
+          <td>Cuentas por pagar a largo plazo</td>
+          <td id="accountsPayableLongTermSummary"></td>
+        </tr>
+        <tr>
+          <td>Otros pasivos no corrientes</td>
+          <td id="otherLongTermLiabilitiesSummary"></td>
+        </tr>
+        <tr>
+          <td><b>Total pasivo corriente</b></td>
+          <td class="bold" id="totalNonCurrentLiabilitiesSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td><b>Total pasivo</b></td>
+          <td class="bold" id="liabilitiesTotalSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2">Patrimonio</td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td><b>Total patrimonio</b></td>
+          <td class="bold" id="equitySummary"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="2">Ingresos, costos y gastos</th>
+        </tr>
+        <tr>
+          <td>Ingresos operacionales</td>
+          <td id="operatingRevenueSummary"></td>
+        </tr>
+        <tr>
+          <td>(-) Costo de venta y prestación de servicios</td>
+          <td id="costOfGoodSoldsSummary"></td>
+        </tr>
+        <tr>
+          <td><b>(=) Utilidad bruta</b></td>
+          <td class="bold" id="grossProfitSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>(-) Gastos operacionales de administración</td>
+          <td id="administrativeExpensesSummary"></td>
+        </tr>
+        <tr>
+          <td>(-) Gastos operacionales de venta</td>
+          <td id="salesExpensesSummary"></td>
+        </tr>
+        <tr>
+          <td><b>(=) Utilidad operacional</b></td>
+          <td class="bold" id="operatingIncomeSummary"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>(+) Ingresos no operacionales</td>
+          <td id="nonOperatingIncomeSummary"></td>
+        </tr>
+        <tr>
+          <td>(-) Gastos no operacionales</td>
+          <td id="nonOperatingExpenseSummary"></td>
+        </tr>
+        <tr>
+          <td><b>(=) Utilidad neta</b></td>
+          <td class="bold" id="netIncomeSummary"></td>
+        </tr>
+      </table>
       <p>
         Si alguna información es incorrecta, usa los siguientes botones para
         regresar a la sección que necesitas corregir.
