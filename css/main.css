@@ -126,6 +126,9 @@ fieldset {
     outline: solid 2px var(--offset-color, var(--button-color-2));
     outline-offset: 4px;
   }
+  :focus[data-size=small] {
+    outline-offset: 2px;
+  }
 }
 /* COMPOSITION */
 /*
@@ -221,6 +224,21 @@ fieldset {
   border: none;
   background-color: var(--button-color-2);
 }
+.button[data-size=small] {
+  --offset-color: var(--color-secondary);
+  position: relative;
+  top: -0.6rem;
+  display: inline-block;
+  margin: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background-color: var(--color-secondary);
+  font-family: var(--title-font);
+  font-size: 0.9rem;
+  border-radius: 3px;
+}
+.button[data-font-size=smaller] {
+  font-size: var(--smaller-fs);
+}
 
 /* UTILITIES */
 /*
@@ -296,11 +314,6 @@ fieldset {
   position: relative;
   padding: 2rem;
   margin-bottom: 2.5rem;
-}
-.page-section .button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 .page-section ul {
   --vertical-flow-space: 1rem;
@@ -386,23 +399,6 @@ fieldset {
 .modal-header span {
   font-size: 3.2rem;
   cursor: pointer;
-}
-
-.button[data-size=small] {
-  --offset-color: var(--color-secondary);
-  position: relative;
-  top: -0.6rem;
-  display: inline-block;
-  margin: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  background-color: var(--color-secondary);
-  font-family: var(--title-font);
-  font-size: 0.9rem;
-  border-radius: 3px;
-}
-
-.button[data-font-size=smaller] {
-  font-size: var(--smaller-fs);
 }
 
 /*# sourceMappingURL=main.css.map */

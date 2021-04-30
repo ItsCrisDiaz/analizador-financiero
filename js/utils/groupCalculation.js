@@ -118,8 +118,6 @@ const checkErrorCalc = function (node) {
   } else {
     value = parseFloat(node.value);
   }
-
-  console.log(value);
   return value;
 };
 

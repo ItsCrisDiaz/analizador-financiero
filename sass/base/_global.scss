@@ -95,5 +95,9 @@ fieldset {
     transition: outline-offset 0.25s ease;
     outline: solid 2px var(--offset-color, var(--button-color-2));
     outline-offset: 4px;
+
+    &[data-size="small"] {
+      outline-offset: 2px;
+    }
   }
 }
