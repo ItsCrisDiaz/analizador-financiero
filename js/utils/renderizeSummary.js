@@ -27,8 +27,19 @@ let formInformation;
 // * @return {Array} Array with ids as key and inputs as values.
 // */
 const getValue = function () {
+  let arrayValue = function (node) {
+    let value = 0;
+    if (node.value === NaN || node.value === "") {
+      value = parseInt(node.placeholder);
+    } else {
+      value = parseInt(node.value);
+    }
+
+    return value;
+  };
+
   formInformation = Array.from(DATABASE_INPUTS).reduce(
-    (acc, input) => ({ ...acc, [input.id]: parseInt(input.value) }),
+    (acc, input) => ({ ...acc, [input.id]: arrayValue(input) }),
     {}
   );
 };
