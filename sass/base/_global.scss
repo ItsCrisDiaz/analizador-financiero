@@ -96,18 +96,18 @@ fieldset {
 // TABLES
 
 table {
-  border: 1px solid var(--color-bg-secondary);
-  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border-input);
+  border-radius: 1rem;
   border-spacing: 0;
   width: 100%;
-  max-width: 80rem;
+  max-width: 40rem;
   padding: 0;
 }
 
 table td,
 table th,
 table tr {
-  padding: 0.7rem 1, 2rem;
+  padding: 0.7rem 1rem;
   text-align: left;
 }
 
@@ -127,8 +127,6 @@ table tr:nth-child(odd) {
 table th {
   background-color: var(--table-header-color);
   border-collapse: collapse;
-  margin: 0;
-  padding: 0;
   color: white;
   text-align: center;
 }

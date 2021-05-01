@@ -125,18 +125,18 @@ fieldset {
 }
 
 table {
-  border: 1px solid var(--color-bg-secondary);
-  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border-input);
+  border-radius: 1rem;
   border-spacing: 0;
   width: 100%;
-  max-width: 80rem;
+  max-width: 40rem;
   padding: 0;
 }
 
 table td,
 table th,
 table tr {
-  padding: 0.7rem 1, 2rem;
+  padding: 0.7rem 1rem;
   text-align: left;
 }
 
@@ -156,8 +156,6 @@ table tr:nth-child(odd) {
 table th {
   background-color: var(--table-header-color);
   border-collapse: collapse;
-  margin: 0;
-  padding: 0;
   color: white;
   text-align: center;
 }
@@ -188,6 +186,16 @@ table th {
 .section-on-screen[data-size=full-size] {
   grid-row: 1/4;
   margin-bottom: 0;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(28.2rem, 4rem));
+  gap: 2rem;
+  width: 100%;
+  max-width: 94rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .buttons-on-screen {
@@ -287,6 +295,19 @@ table th {
   font-weight: bold;
 }
 
+.top-radius {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.bottom-left-radius {
+  border-bottom-left-radius: 1rem;
+}
+
+.bottom-right-radius {
+  border-bottom-right-radius: 1rem;
+}
+
 /* UTILITIES */
 /*
 *Progress-bar block
@@ -367,6 +388,9 @@ table th {
 }
 .page-section[hidden] {
   display: none;
+}
+.page-section > table + table {
+  margin-top: 2rem;
 }
 
 .button-container {

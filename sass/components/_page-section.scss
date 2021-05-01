@@ -11,4 +11,8 @@
   &[hidden] {
     display: none;
   }
+
+  & > table + table {
+    margin-top: 2rem;
+  }
 }
