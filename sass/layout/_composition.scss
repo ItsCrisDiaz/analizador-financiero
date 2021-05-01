@@ -7,6 +7,7 @@
 .main-grid {
   display: grid;
   grid-template-rows: 2.5rem 1fr 9rem;
+  height: 100vh;
 }
 
 .section-on-screen {
@@ -15,7 +16,8 @@
 
   &[data-size="full-size"] {
     grid-row: 1 / 4;
-    margin-bottom: 0;
+    // margin-bottom: 0;
+    // padding-bottom: 2rem;
   }
 }
 

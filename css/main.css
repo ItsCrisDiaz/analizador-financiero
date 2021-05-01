@@ -27,19 +27,13 @@
   --body-fs: 1.6rem;
   --smaller-fs: 1.2rem;
   /* Others */
-  --container-max-width: 145rem;
+  --container-max-width: 110rem;
 }
 
 /* GLOBAL STYLES */
 html {
   font-size: 62.5%;
   font-family: var(--text-font);
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
 }
 
 h1,
@@ -177,6 +171,7 @@ table th {
 .main-grid {
   display: grid;
   grid-template-rows: 2.5rem 1fr 9rem;
+  height: 100vh;
 }
 
 .section-on-screen {
@@ -185,7 +180,6 @@ table th {
 }
 .section-on-screen[data-size=full-size] {
   grid-row: 1/4;
-  margin-bottom: 0;
 }
 
 .buttons-on-screen {
@@ -219,12 +213,10 @@ table th {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20rem;
-  height: 20rem;
-  border-radius: 50%;
+  margin-left: 1.6rem;
+  border-radius: 1rem;
   font-size: 4rem;
+  font-family: var(--title-font);
 }
 
 /*
@@ -389,6 +381,9 @@ table th {
 .page-section > table + table {
   margin-top: 2rem;
 }
+.page-section:last-child {
+  padding-bottom: 1rem;
+}
 
 .button-container {
   --vertical-flow-space: 0;
@@ -493,6 +488,27 @@ table th {
 .modal ul[role=list] li:hover {
   background-color: var(--color-accent);
   transition: background-color 0.2s ease-in;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 85rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.report-grid .indicator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+.report-grid .indicator-container img {
+  width: 6rem;
+  height: 6rem;
 }
 
 /*# sourceMappingURL=main.css.map */

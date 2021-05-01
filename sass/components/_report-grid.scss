@@ -1,0 +1,22 @@
+.report-grid {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1.6rem;
+  width: 100%;
+  max-width: 85rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  & .indicator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 2rem;
+
+    & img {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+}

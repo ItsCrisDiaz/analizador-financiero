@@ -16,7 +16,13 @@ import caseIndicator from "../utils/caseIndicatorSwitchCase.js";
 
 const addClassAndMessage = (indicator, result) => {
   // Selects the nodes where it's nedded to add classes and content.
-  let indicatorImage = document.querySelector(`#${INDICATORS_MESSAGES.id} img`);
+  let indicatorContainer = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} .indicator-container`
+  );
+
+  let indicatorImage = document.querySelector(
+    `#${INDICATORS_MESSAGES[indicator].id} img`
+  );
 
   let indicatorNode = document.querySelector(
     `#${INDICATORS_MESSAGES[indicator].id} .indicator`
@@ -34,6 +40,10 @@ const addClassAndMessage = (indicator, result) => {
 
   // caseIndicator = "N/A"
   if (indicatorCalculation === "N/A") {
+    // Adds the respective class to indicator-container
+    indicatorContainer.classList.add("warning");
+    indicatorContainer.classList.remove("correct", "wrong");
+    // Add the respective source and alt description to the img
     indicatorImage.src = "/assets/icons/calculation-error.svg";
     indicatorImage.alt = "Indicador no aplicable a los estados financieros";
     // Add the respective class and removes the other two options in indicatorNode.
@@ -50,6 +60,8 @@ const addClassAndMessage = (indicator, result) => {
 
     // Positive caseIndicator
   } else if (caseIndicatorResult === "positive") {
+    indicatorContainer.classList.add("correct");
+    indicatorContainer.classList.remove("warning", "wrong");
     indicatorImage.src = "/assets/icons/correct.svg";
     indicatorImage.alt = "Este indicador es positivo";
     indicatorNode.classList.add("correct");
@@ -61,6 +73,8 @@ const addClassAndMessage = (indicator, result) => {
 
     // Negative caseIndicator
   } else if (caseIndicatorResult === "negative") {
+    indicatorContainer.classList.add("wrong");
+    indicatorContainer.classList.remove("correct", "warning");
     indicatorImage.src = "/assets/icons/error.svg";
     indicatorImage.alt = "Este indicador es negativo";
     indicatorNode.classList.add("wrong");
@@ -72,6 +86,8 @@ const addClassAndMessage = (indicator, result) => {
 
     // Warning caseIndicator
   } else {
+    indicatorContainer.classList.add("warning");
+    indicatorContainer.classList.remove("correct", "wrong");
     indicatorImage.src = "/assets/icons/warning.svg";
     indicatorImage.alt = "Este indicador requiere observación";
     indicatorNode.classList.add("warning");
