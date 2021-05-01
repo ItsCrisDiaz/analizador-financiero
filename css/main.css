@@ -472,6 +472,7 @@ table th {
   justify-content: center;
   margin: 0;
   max-height: 28rem;
+  max-width: 100%;
   padding: 1rem;
   font-family: var(--title-font);
   font-weight: bold;
@@ -479,14 +480,14 @@ table th {
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.modal li {
+.modal ul[role=list] li {
   padding: 2rem;
   border-bottom: 1px solid var(--color-border-grid);
 }
-.modal li:first-child {
+.modal ul[role=list] li:first-child {
   border-top: 1px solid var(--color-border-grid);
 }
-.modal li:hover {
+.modal ul[role=list] li:hover {
   background-color: var(--color-accent);
   transition: background-color 0.2s ease-in;
 }
