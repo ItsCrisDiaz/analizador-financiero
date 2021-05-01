@@ -1,8 +1,16 @@
+import {
+  SUMMARY_ASSETS_BUTTON,
+  SUMMARY_LIABILITIES_AND_EQUITY_BUTTON,
+  SUMMARY_PROFIT_AND_LOSS_BUTTON,
+} from "./sectionNavigationButtons.js";
+
 //############################################
 //NODES
 //############################################
 
-const MODAL_SECTION = document.querySelector(".modal");
+const MODAL_SECTION = document.querySelector("#helpModal");
+const SECTION_MODAL_WINDOW = document.querySelector("#sectionList");
+const SECTION_MODAL_BUTTON = document.querySelector("#reportChangeOptions");
 const MODAL_TITLE = document.querySelector(".modal-header h3");
 const MODAL_CONTENT_DESCRIPTION = document.querySelector(
   ".modal-content p:nth-child(1)"
@@ -10,7 +18,8 @@ const MODAL_CONTENT_DESCRIPTION = document.querySelector(
 const MODAL_CONTENT_EXAMPLES = document.querySelector(
   ".modal-content p:nth-child(2)"
 );
-const MODAL_CLOSE = document.querySelector(".close");
+const HELP_MODAL_CLOSE = document.querySelector("#helpModal .close");
+const SECTION_MODAL_CLOSE = document.querySelector("#sectionList .close");
 
 //############################################
 //FUNCTIONS
@@ -52,17 +61,31 @@ const createModalContent = function (e) {
 };
 
 // **
+// * openModal
+// * Open the modal window
+// * @param {}
+// */
+
+const openModal = function (node) {
+  // Restores the document's overflow state to normal
+  document.getElementsByTagName("html")[0].style.overflow = "hidden";
+
+  // Hides the modal window
+  node.hidden = false;
+};
+
+// **
 // * closeModal
 // * Close the modal window
 // * @param {}
 // */
 
-const closeModal = function () {
+const closeModal = function (node) {
   // Restores the document's overflow state to normal
   document.getElementsByTagName("html")[0].style.overflow = "visible";
 
   // Hides the modal window
-  MODAL_SECTION.hidden = true;
+  node.hidden = true;
 };
 
 //############################################
@@ -71,14 +94,22 @@ const closeModal = function () {
 
 const modalEventListener = function () {
   document.addEventListener("click", function (e) {
-    //Event listener for sup elements
+    //Event listener for help button elements
     if (e.target && e.target.matches('.button[data-size="small"]')) {
       createModalContent(e);
       return createModalContent;
     } //Event listener for MODAL_CLOSE element
-    else if (e.target === MODAL_CLOSE) {
-      closeModal();
-    } else {
+    else if (e.target === HELP_MODAL_CLOSE) {
+      closeModal(MODAL_SECTION);
+    } else if (e.target === SECTION_MODAL_BUTTON) {
+      openModal(SECTION_MODAL_WINDOW);
+    } else if (
+      e.target === SECTION_MODAL_CLOSE ||
+      e.target === SUMMARY_ASSETS_BUTTON ||
+      e.target === SUMMARY_LIABILITIES_AND_EQUITY_BUTTON ||
+      e.target === SUMMARY_PROFIT_AND_LOSS_BUTTON
+    ) {
+      closeModal(SECTION_MODAL_WINDOW);
     }
   });
 };

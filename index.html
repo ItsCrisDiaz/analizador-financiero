@@ -727,11 +727,11 @@
         </section>
       </section>
     </section>
-    <section class="modal" hidden>
+    <section class="modal" id="helpModal" hidden>
       <article>
         <div class="modal-header">
           <h3></h3>
-          <span class="close" aria-label="Cerrar">&times;</span>
+          <span class="close" aria-label="Cerrar" tabindex="0">&times;</span>
         </div>
         <div class="modal-content | flow">
           <p></p>
@@ -739,8 +739,12 @@
         </div>
       </article>
     </section>
-    <div class="section-list" id="sectionList" hidden>
-      <ul role="list">
+    <div class="modal" id="sectionList" hidden>
+      <div class="modal-header" data-align="right">
+        <h3>Corregir información</h3>
+        <span class="close" aria-label="Cerrar" tabindex="0">&times;</span>
+      </div>
+      <ul class="modal-content" role="list">
         <li>Parte 1: Activos</li>
         <li>Parte 2: Pasivos y Patrimonio</li>
         <li>Parte 3: Ingresos, costos y gastos</li>

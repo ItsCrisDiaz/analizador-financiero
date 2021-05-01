@@ -44,8 +44,37 @@
     }
 
     & span {
+      --offset-color: white;
       font-size: 3.2rem;
       cursor: pointer;
+    }
+  }
+
+  & ul[role="list"] {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 0;
+    max-height: 28rem;
+    padding: 1rem;
+    font-family: var(--title-font);
+    font-weight: bold;
+    background-color: hsl(0, 100%, 100%);
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+
+  & li {
+    padding: 2rem;
+    border-bottom: 1px solid var(--color-border-grid);
+
+    &:first-child {
+      border-top: 1px solid var(--color-border-grid);
+    }
+
+    &:hover {
+      background-color: var(--color-accent);
+      transition: background-color 0.2s ease-in;
     }
   }
 }
