@@ -29,4 +29,14 @@
       }
     }
   }
+
+  .section-on-screen[data-size="full-size"] .wrapper {
+    & > h2 {
+      font-size: var(--h1-fs);
+    }
+
+    & h2 {
+      text-align: center;
+    }
+  }
 }
