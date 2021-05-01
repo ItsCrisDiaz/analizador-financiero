@@ -4,11 +4,7 @@ import {
   PROFIT_AND_LOSS_SECTION,
 } from "../utils/sectionNavigationButtons.js";
 
-import {
-  groupSum,
-  equitySum,
-  profitAndLossCalculation,
-} from "./groupCalculation.js";
+import { groupSum, profitAndLossCalculation } from "./groupCalculation.js";
 
 //############################################
 //NODES

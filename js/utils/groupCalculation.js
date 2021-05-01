@@ -8,6 +8,8 @@ import {
 //NODES
 //############################################
 
+const TOTAL_ASSETS_INPUT = document.querySelector("#assetsTotal");
+const TOTAL_LIABILITIES_INPUT = document.querySelector("#liabilitiesTotal");
 const OPERATING_REVENUE_INPUT = document.querySelector("#operatingRevenue");
 const COST_OF_GOOD_SOLD_INPUT = document.querySelector("#costOfGoodSolds");
 const GROSS_PROFIT_INPUT = document.querySelector("#grossProfit");
@@ -70,30 +72,37 @@ const checkErrorCalc = function (node) {
 // * @param {}
 // * @return {Number} The total of equity and adds it to an specific node
 // */
-const equitySum = function () {
+const equityAndBalanceSheetGroupsSum = function () {
   //Declares the let equityValue and assigns it with the total amount of current assets.
-  let equityValue = parseFloat(
+  let assetsValue = parseFloat(
     ASSETS_SECTION.querySelector(".current-assets-value[disabled]").value
   );
 
   //Adds the total amount of non current assets.
-  equityValue += parseFloat(
+  assetsValue += parseFloat(
     ASSETS_SECTION.querySelector(".non-current-assets-value[disabled]").value
   );
 
+  TOTAL_ASSETS_INPUT.value = assetsValue;
+
   //Substracts the total amount of current liabilities.
-  equityValue -= parseFloat(
+  let liabilitiesValue = parseFloat(
     LIABILITIES_AND_EQUITY_SECTION.querySelector(
       ".current-liabilities-value[disabled]"
     ).value
   );
 
   //Substract the total amount of non current liabilities.
-  equityValue -= parseFloat(
+  liabilitiesValue += parseFloat(
     LIABILITIES_AND_EQUITY_SECTION.querySelector(
       ".non-current-liabilities-value[disabled]"
     ).value
   );
+
+  TOTAL_LIABILITIES_INPUT.value = liabilitiesValue;
+
+  let equityValue = assetsValue;
+  equityValue -= liabilitiesValue;
 
   //Declares the let equityValueInput and assigns it with the node designated input to show the equity total
   let equityValueInput = LIABILITIES_AND_EQUITY_SECTION.querySelector(
@@ -139,7 +148,7 @@ const groupSum = function (idSelector, classSelector) {
   //Changing the value of the node in variable groupTotal with the variable groupSum
   groupTotal.value = groupSum;
   //Calling the function equitySum to update the total of equity
-  equitySum();
+  equityAndBalanceSheetGroupsSum();
 };
 
 // **
@@ -218,6 +227,5 @@ export {
   liabilitiesAndEquityCalcEventListener,
   profitAndLossCalcEventListener,
   groupSum,
-  equitySum,
   profitAndLossCalculation,
 };
