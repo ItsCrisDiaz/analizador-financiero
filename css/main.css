@@ -188,16 +188,6 @@ table th {
   margin-bottom: 0;
 }
 
-.table-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(28.2rem, 4rem));
-  gap: 2rem;
-  width: 100%;
-  max-width: 94rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .buttons-on-screen {
   grid-row: 3/4;
   place-content: center;
@@ -388,6 +378,10 @@ table th {
 }
 .page-section[hidden] {
   display: none;
+}
+.page-section > table {
+  margin-left: auto;
+  margin-right: auto;
 }
 .page-section > table + table {
   margin-top: 2rem;

@@ -12,7 +12,12 @@
     display: none;
   }
 
-  & > table + table {
-    margin-top: 2rem;
+  & > table {
+    margin-left: auto;
+    margin-right: auto;
+
+    & + table {
+      margin-top: 2rem;
+    }
   }
 }

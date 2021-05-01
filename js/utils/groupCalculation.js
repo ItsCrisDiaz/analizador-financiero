@@ -71,7 +71,6 @@ const checkErrorCalc = function (node) {
 // * @return {Number} The total of equity and adds it to an specific node
 // */
 const equitySum = function () {
-  debugger;
   //Declares the let equityValue and assigns it with the total amount of current assets.
   let equityValue = parseFloat(
     ASSETS_SECTION.querySelector(".current-assets-value[disabled]").value

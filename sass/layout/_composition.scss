@@ -19,16 +19,6 @@
   }
 }
 
-.table-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(28.2rem, 4rem));
-  gap: 2rem;
-  width: 100%;
-  max-width: 94rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .buttons-on-screen {
   grid-row: 3 / 4;
   place-content: center;
