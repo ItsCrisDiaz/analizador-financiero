@@ -16,6 +16,8 @@ import caseIndicator from "../utils/caseIndicatorSwitchCase.js";
 
 const addClassAndMessage = (indicator, result) => {
   // Selects the nodes where it's nedded to add classes and content.
+  let indicatorImage = document.querySelector(`#${INDICATORS_MESSAGES.id} img`);
+
   let indicatorNode = document.querySelector(
     `#${INDICATORS_MESSAGES[indicator].id} .indicator`
   );
@@ -32,6 +34,8 @@ const addClassAndMessage = (indicator, result) => {
 
   // caseIndicator = "N/A"
   if (indicatorCalculation === "N/A") {
+    indicatorImage.src = "/assets/icons/calculation-error.svg";
+    indicatorImage.alt = "Indicador no aplicable a los estados financieros";
     // Add the respective class and removes the other two options in indicatorNode.
     indicatorNode.classList.add("warning");
     indicatorNode.classList.remove("correct", "wrong");
@@ -46,6 +50,8 @@ const addClassAndMessage = (indicator, result) => {
 
     // Positive caseIndicator
   } else if (caseIndicatorResult === "positive") {
+    indicatorImage.src = "/assets/icons/correct.svg";
+    indicatorImage.alt = "Este indicador es positivo";
     indicatorNode.classList.add("correct");
     indicatorNode.classList.remove("wrong", "warning");
     indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].positiveText}`;
@@ -55,6 +61,8 @@ const addClassAndMessage = (indicator, result) => {
 
     // Negative caseIndicator
   } else if (caseIndicatorResult === "negative") {
+    indicatorImage.src = "/assets/icons/error.svg";
+    indicatorImage.alt = "Este indicador es negativo";
     indicatorNode.classList.add("wrong");
     indicatorNode.classList.remove("correct", "warning");
     indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].negativeText}`;
@@ -64,6 +72,8 @@ const addClassAndMessage = (indicator, result) => {
 
     // Warning caseIndicator
   } else {
+    indicatorImage.src = "/assets/icons/warning.svg";
+    indicatorImage.alt = "Este indicador requiere observación";
     indicatorNode.classList.add("warning");
     indicatorNode.classList.remove("correct", "wrong");
     indicatorStateNode.innerHTML = `${INDICATORS_MESSAGES[indicator].warningText}`;

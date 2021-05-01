@@ -328,6 +328,9 @@ table th {
   background: linear-gradient(white, rgba(255, 255, 255, 0.001));
   z-index: 2;
 }
+.progress-bar-container[hidden] {
+  display: none;
+}
 
 .progress-bar {
   --vertical-flow-space: 0;
