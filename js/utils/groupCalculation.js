@@ -49,12 +49,29 @@ const groupTotal = function (node) {
 };
 
 // **
+// * checkErrorCalc
+// * Returns either the placeholder or the value of the specified node
+// * @param {node} Node   Node that needs to be check the value
+// */
+
+const checkErrorCalc = function (node) {
+  let value = 0;
+  if (node.value === "") {
+    value = parseInt(node.placeholder);
+  } else {
+    value = parseInt(node.value);
+  }
+  return value;
+};
+
+// **
 // * equitySum
 // * Calculates the total amount of the equity according to user's inputs
 // * @param {}
 // * @return {Number} The total of equity and adds it to an specific node
 // */
 const equitySum = function () {
+  debugger;
   //Declares the let equityValue and assigns it with the total amount of current assets.
   let equityValue = parseFloat(
     ASSETS_SECTION.querySelector(".current-assets-value[disabled]").value
@@ -108,11 +125,13 @@ const groupSum = function (idSelector, classSelector) {
   //Creating a sum with each input of the array in groupValue
   let groupSum = 0;
   groupValue.forEach((input) => {
-    if (input.value === "") {
+    if (input.value == "") {
       groupSum += parseInt(input.placeholder);
     } else {
       groupSum += parseInt(input.value);
     }
+
+    return groupSum;
   });
 
   //Selects a node of idSelector that has the attribut [disabled] and its class corresponde with classSelector
@@ -122,22 +141,6 @@ const groupSum = function (idSelector, classSelector) {
   groupTotal.value = groupSum;
   //Calling the function equitySum to update the total of equity
   equitySum();
-};
-
-// **
-// * checkErrorCalc
-// * Returns either the placeholder or the value of the specified node
-// * @param {node} Node   Node that needs to be check the value
-// */
-
-const checkErrorCalc = function (node) {
-  let value = 0;
-  if (node.value === "") {
-    value = parseInt(node.placeholder);
-  } else {
-    value = parseInt(node.value);
-  }
-  return value;
 };
 
 // **
@@ -216,5 +219,6 @@ export {
   liabilitiesAndEquityCalcEventListener,
   profitAndLossCalcEventListener,
   groupSum,
+  equitySum,
   profitAndLossCalculation,
 };

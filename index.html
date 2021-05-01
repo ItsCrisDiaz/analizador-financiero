@@ -115,14 +115,14 @@
             data-value="result"
             placeholder="0"
           />
-          <label for="current-assets-total"><strong>Total activo no coriente</strong></label>
+          <label for="current-assets-total"><strong>Total activo coriente</strong></label>
           <input class="current-assets-value"
             id="currentAssetsTotal"
             type="number"
             name="current-assets-total"
             data-value="result"
             data-group-total="true"
-            placeholder="0" disabled
+            value="0" disabled
           />
         </fieldset>
         <fieldset class="flow">
@@ -181,7 +181,7 @@
             name="non-current-assets-total"
             data-value="result"
             data-group-total="true"
-            placeholder="0" disabled
+            value="0" disabled
           />
         </fieldset>
         <fieldset class="flow">
@@ -189,7 +189,7 @@
           <input
           type="number" 
           name="assets-total" id="assetsTotal"
-          placeholder="0"
+          value="0"
           data-value="result"
           data-section-total="true"
           disabled>
@@ -264,7 +264,7 @@
             name="employee-liabilities"
             data-value="result"
             data-group-total="true"
-            placeholder="0" disabled
+            value="0" disabled
           />
         </fieldset>
         <fieldset class="flow">
@@ -316,7 +316,7 @@
             name="total-non-current-assets"
             data-value="result"
             data-group-total="true"
-            placeholder="0" disabled
+            value="0" disabled
           />
         </fieldset>
         <fieldset class="flow">
@@ -324,7 +324,7 @@
           <input type="number"
           name="total-liabilities"
           id="liabilitiesTotal"
-          placeholder="0"
+          value="0"
           data-value="result"
           data-section-total="true"
           disabled />
@@ -536,6 +536,9 @@
           <th colspan="2">Pasivo y patrimonio</th>
         </tr>
         <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
           <th colspan="2">Pasivo</th>
         </tr>
         <tr>
@@ -585,7 +588,10 @@
           <td class="bold" id="liabilitiesTotalSummary"></td>
         </tr>
         <tr>
-          <td colspan="2">Patrimonio</td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <th colspan="2">Patrimonio</th>
         </tr>
         <tr></tr>
         <tr>
@@ -644,11 +650,6 @@
         Si alguna información es incorrecta, usa los siguientes botones para
         regresar a la sección que necesitas corregir.
       </p>
-      <div class="back-buttons | flow">
-        <button class="button" type="button">Parte 1: Activos</button>
-        <button class="button" type="button">Parte 2: Pasivos y Patrimonio</button>
-        <button class="button" type="button">Parte 3: Ingresos, costos y gastos</button>
-      </div>
       <p>
         Si consideras que la información es correcta, haz click en el siguiente
         botón para generar tu reporte financiero.
@@ -738,6 +739,13 @@
         </div>
       </article>
     </section>
+    <div class="section-list" id="sectionList" hidden>
+      <ul role="list">
+        <li>Parte 1: Activos</li>
+        <li>Parte 2: Pasivos y Patrimonio</li>
+        <li>Parte 3: Ingresos, costos y gastos</li>
+      </ul>
+    </div>
   </body>
   <script type="module" src="js/index.js"></script>
 </html>

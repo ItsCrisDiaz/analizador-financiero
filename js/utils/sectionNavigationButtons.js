@@ -31,13 +31,13 @@ const PROFIT_AND_LOSS_BACK_BUTTON = document.querySelector(
   "#profitAndLossButton .back"
 );
 const SUMMARY_ASSETS_BUTTON = document.querySelector(
-  "#summary .back-buttons button:nth-child(1)"
+  '#sectionList ul[role="list"] li:nth-child(1)'
 );
 const SUMMARY_LIABILITIES_AND_EQUITY_BUTTON = document.querySelector(
-  "#summary .back-buttons button:nth-child(2)"
+  '#sectionList ul[role="list"] li:nth-child(2)'
 );
 const SUMMARY_PROFIT_AND_LOSS_BUTTON = document.querySelector(
-  "#summary .back-buttons button:nth-child(3)"
+  '#sectionList ul[role="list"] li:nth-child(3)'
 );
 const SUBMIT_FORM_BUTTON = document.querySelector("#generateContent");
 
