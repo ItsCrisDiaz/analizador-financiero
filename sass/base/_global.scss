@@ -81,6 +81,7 @@ textarea {
 fieldset {
   --vertical-flow-space: 1.6rem;
   padding: 2rem;
+  max-width: 100ch;
 }
 
 [hidden] {
