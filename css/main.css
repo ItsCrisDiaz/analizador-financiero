@@ -172,7 +172,6 @@ table th {
 .main-grid {
   display: grid;
   grid-template-rows: 2.5rem 1fr 9rem;
-  height: 100vh;
 }
 
 .section-on-screen {
@@ -296,11 +295,17 @@ table th {
 *Progress-bar block
 */
 .progress-bar-container {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 2rem;
+  background-color: white;
+  width: 100vw;
+  height: 2.5rem;
+  z-index: 2;
 }
 .progress-bar-container::after {
   content: "";
@@ -389,11 +394,15 @@ table th {
 .button-container {
   --vertical-flow-space: 0;
   --horizontal-flow-space: 2rem;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  background-color: white;
+  z-index: 2;
 }
 .button-container::before {
   content: "";

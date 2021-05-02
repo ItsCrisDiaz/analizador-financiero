@@ -5,11 +5,17 @@
 */
 
 .progress-bar-container {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 2rem;
+  background-color: white;
+  width: 100vw;
+  height: 2.5rem;
+  z-index: 2;
 
   &::after {
     content: "";

@@ -1,11 +1,15 @@
 .button-container {
   --vertical-flow-space: 0;
   --horizontal-flow-space: 2rem;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  background-color: white;
+  z-index: 2;
 
   &::before {
     content: "";

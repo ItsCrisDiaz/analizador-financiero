@@ -23,7 +23,12 @@
     grid-column: 1/3;
   }
 
-  .page-section .wrapper {
+  .button-container,
+.progress-bar-container {
+    left: 10%;
+  }
+
+  .page-section:not([data-size=full-size]) .wrapper {
     padding-left: 10%;
   }
 
