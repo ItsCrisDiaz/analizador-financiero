@@ -44,7 +44,7 @@ const addClassAndMessage = (indicator, result) => {
     indicatorContainer.classList.add("warning");
     indicatorContainer.classList.remove("correct", "wrong");
     // Add the respective source and alt description to the img
-    indicatorImage.src = "/assets/icons/calculation-error.svg";
+    indicatorImage.src = "/img/icons/calculation-error.svg";
     indicatorImage.alt = "Indicador no aplicable a los estados financieros";
     // Add the respective class and removes the other two options in indicatorNode.
     indicatorNode.classList.add("warning");
@@ -62,7 +62,7 @@ const addClassAndMessage = (indicator, result) => {
   } else if (caseIndicatorResult === "positive") {
     indicatorContainer.classList.add("correct");
     indicatorContainer.classList.remove("warning", "wrong");
-    indicatorImage.src = "/assets/icons/correct.svg";
+    indicatorImage.src = "/img/icons/correct.svg";
     indicatorImage.alt = "Este indicador es positivo";
     indicatorNode.classList.add("correct");
     indicatorNode.classList.remove("wrong", "warning");
@@ -75,7 +75,7 @@ const addClassAndMessage = (indicator, result) => {
   } else if (caseIndicatorResult === "negative") {
     indicatorContainer.classList.add("wrong");
     indicatorContainer.classList.remove("correct", "warning");
-    indicatorImage.src = "/assets/icons/error.svg";
+    indicatorImage.src = "/img/icons/error.svg";
     indicatorImage.alt = "Este indicador es negativo";
     indicatorNode.classList.add("wrong");
     indicatorNode.classList.remove("correct", "warning");
@@ -88,7 +88,7 @@ const addClassAndMessage = (indicator, result) => {
   } else {
     indicatorContainer.classList.add("warning");
     indicatorContainer.classList.remove("correct", "wrong");
-    indicatorImage.src = "/assets/icons/warning.svg";
+    indicatorImage.src = "/img/icons/warning.svg";
     indicatorImage.alt = "Este indicador requiere observación";
     indicatorNode.classList.add("warning");
     indicatorNode.classList.remove("correct", "wrong");
