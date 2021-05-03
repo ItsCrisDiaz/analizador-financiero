@@ -84,10 +84,14 @@ input:disabled {
   cursor: not-allowed;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 input,
@@ -161,7 +165,7 @@ table th {
     outline: solid 2px var(--offset-color, var(--button-color-2));
     outline-offset: 4px;
   }
-  :focus[data-size=small] {
+  :focus[data-size="small"] {
     outline-offset: 2px;
   }
 }
@@ -178,7 +182,7 @@ table th {
   grid-row: 2/3;
   overflow-y: auto;
 }
-.section-on-screen[data-size=full-size] {
+.section-on-screen[data-size="full-size"] {
   grid-row: 1/4;
 }
 
@@ -257,7 +261,7 @@ table th {
   border: none;
   background-color: var(--button-color-2);
 }
-.button[data-size=small] {
+.button[data-size="small"] {
   --offset-color: var(--color-secondary);
   position: relative;
   top: -0.6rem;
@@ -269,7 +273,7 @@ table th {
   font-size: 0.9rem;
   border-radius: 3px;
 }
-.button[data-font-size=smaller] {
+.button[data-font-size="smaller"] {
   font-size: var(--smaller-fs);
 }
 
@@ -474,7 +478,7 @@ table th {
   font-size: 3.2rem;
   cursor: pointer;
 }
-.modal ul[role=list] {
+.modal ul[role="list"] {
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -488,14 +492,14 @@ table th {
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.modal ul[role=list] li {
+.modal ul[role="list"] li {
   padding: 2rem;
   border-bottom: 1px solid var(--color-border-grid);
 }
-.modal ul[role=list] li:first-child {
+.modal ul[role="list"] li:first-child {
   border-top: 1px solid var(--color-border-grid);
 }
-.modal ul[role=list] li:hover {
+.modal ul[role="list"] li:hover {
   background-color: var(--color-accent);
   transition: background-color 0.2s ease-in;
 }
